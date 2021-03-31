@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<Locations >
+  <Project>
+    <vfs_file />
+    <file_marker column=" 92" line=" 2" >
+      <vfs_project>/home/silvere/workplace/OBD-II-CAN-telemetry/obd_can_telemetry.gpr</vfs_project>
+      <vfs_file>/home/silvere/workplace/OBD-II-CAN-telemetry/obd_can_telemetry.gpr</vfs_file>
+    </file_marker>
+    <file_marker column=" 4" line=" 3" >
+      <vfs_project>/home/silvere/workplace/OBD-II-CAN-telemetry/obd_can_telemetry.gpr</vfs_project>
+      <vfs_file>/home/silvere/workplace/OBD-II-CAN-telemetry/src/protocol_tools/encoder.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 4" line=" 3" >
+      <vfs_project>/home/silvere/workplace/OBD-II-CAN-telemetry/obd_can_telemetry.gpr</vfs_project>
+      <vfs_file>/home/silvere/workplace/OBD-II-CAN-telemetry/src/protocol_tools/encoder.ads</vfs_file>
+    </file_marker>
+    <file_marker column=" 4" line=" 3" >
+      <vfs_project>/home/silvere/workplace/OBD-II-CAN-telemetry/obd_can_telemetry.gpr</vfs_project>
+      <vfs_file>/home/silvere/workplace/OBD-II-CAN-telemetry/src/protocol_tools/decoder.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 4" line=" 3" >
+      <vfs_project>/home/silvere/workplace/OBD-II-CAN-telemetry/obd_can_telemetry.gpr</vfs_project>
+      <vfs_file>/home/silvere/workplace/OBD-II-CAN-telemetry/src/protocol_tools/decoder.ads</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1" >
+      <vfs_project>/home/silvere/workplace/OBD-II-CAN-telemetry/obd_can_telemetry.gpr</vfs_project>
+      <vfs_file>/home/silvere/workplace/OBD-II-CAN-telemetry/src/protocol/message.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 92" line=" 2" >
+      <vfs_project>/home/silvere/workplace/OBD-II-CAN-telemetry/obd_can_telemetry.gpr</vfs_project>
+      <vfs_file>/home/silvere/workplace/OBD-II-CAN-telemetry/obd_can_telemetry.gpr</vfs_file>
+    </file_marker>
+    <file_marker current="true" column=" 4" line=" 3" >
+      <vfs_project>/home/silvere/workplace/OBD-II-CAN-telemetry/obd_can_telemetry.gpr</vfs_project>
+      <vfs_file>/home/silvere/workplace/OBD-II-CAN-telemetry/src/CAN_tranceiver/cantranceiver.adb</vfs_file>
+    </file_marker>
+  </Project>
+</Locations>
