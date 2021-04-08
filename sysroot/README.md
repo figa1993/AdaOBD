@@ -1,0 +1,1 @@
+The sysroot of the target should be copied or symlinked in this directory.

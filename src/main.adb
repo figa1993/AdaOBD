@@ -1,8 +1,11 @@
+with Ada.Text_IO; use Ada.Text_IO;
 with PIDs; use PIDs;
+
 
 procedure Main is
 
 begin
+   Put_Line ("AdaOBD version 0.0.1");
    --   Parse command line arguments
 
    --   Initialize the CAN_Transceiver with the device handle,

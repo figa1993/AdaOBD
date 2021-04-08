@@ -1,0 +1,6 @@
+# Ignore everything
+/*
+
+# Unignore the README.md instructions and this file
+!/README.md
+!/.gitignore
