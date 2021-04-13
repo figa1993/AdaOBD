@@ -9,7 +9,9 @@ package PIDs is
       Bits : Bit_Array_32;
    end record;
 
-   overriding function Serialize (This : Supported_PIDs_Bitfield) return Payload_Type;
-   overriding procedure Deserialize (This : Supported_PIDs_Bitfield; Bytes : Payload_Type);
+   overriding function Serialize (This : Supported_PIDs_Bitfield)
+                                  return Payload_Type;
+   overriding procedure Deserialize
+     (This : Supported_PIDs_Bitfield; Bytes : Payload_Type);
 
 end PIDs;

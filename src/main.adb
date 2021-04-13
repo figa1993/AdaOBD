@@ -2,7 +2,6 @@ with GNAT.Command_Line;   use GNAT.Command_Line;
 with Ada.Text_IO; use Ada.Text_IO;
 with PIDs; use PIDs;
 
-
 procedure Main is
 
 begin
@@ -14,7 +13,8 @@ begin
 
    --   Register callbacks on the CAN_Transceiver, Encoder, and Decoder
 
-   --   Determine which PIDs are supported and set-up deserialization dictionary
+   --   Determine which PIDs are supported and set-up
+   --   deserialization dictionary
 
    --   Kick off task(s) for querying each PID
    --   @TODO is it possible to determine PID data rates?

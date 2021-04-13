@@ -1,6 +1,6 @@
 project Obd_Can_Telemetry is
 
-   for Source_Dirs use ("src", "src/protocol_tools", "src/protocol", "src/CAN_transceiver", "src/linux_bindings");
+   for Source_Dirs use ("src/**", "src/protocol_tools", "src/protocol", "src/CAN_transceiver", "src/linux_bindings", "src");
    for Object_Dir use "obj";
    for Main use ("main.adb");
    for Target use "arm-linux-gnueabihf";
@@ -8,6 +8,10 @@ project Obd_Can_Telemetry is
    package Gnattest is
       for Tests_Root use "../test/";
    end Gnattest;
+
+   package Compiler is
+      for Switches ("ada") use ("-gnatg");
+   end Compiler;
 
 end Obd_Can_Telemetry;
 
