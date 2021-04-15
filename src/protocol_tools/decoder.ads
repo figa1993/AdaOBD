@@ -23,7 +23,7 @@ private
 
    package MessageMap is new Ada.Containers.Indefinite_Ordered_Maps
      (Key_Type => Message_Key_Type,
-      Element_Type => OBD2_Message);
+      Element_Type => OBD2_Message'Class);
    use MessageMap;
 
    theMessageMap : Map;
