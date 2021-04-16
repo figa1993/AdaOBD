@@ -1,6 +1,6 @@
 project Obd_Can_Telemetry is
 
-   for Source_Dirs use ("src/", "src/protocol_tools", "src/protocol", "src/CAN_tranceiver/", "src/utils", "src/linux_bindings", "src");
+   for Source_Dirs use ("src/**");
    for Object_Dir use "obj";
    for Main use ("main.adb");
    for Target use "arm-linux-gnueabihf";
@@ -14,3 +14,4 @@ project Obd_Can_Telemetry is
    end Compiler;
 
 end Obd_Can_Telemetry;
+
