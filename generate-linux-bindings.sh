@@ -12,4 +12,4 @@ cd $SCRIPT_DIR/src/linux_bindings
 arm-linux-gnueabihf-gcc -c -fdump-ada-spec -C $SCRIPT_DIR/sysroot/usr/include/linux/can.h
 arm-linux-gnueabihf-gcc -c -fdump-ada-spec -C $SCRIPT_DIR/sysroot/usr/include/linux/can/raw.h
 arm-linux-gnueabihf-gcc -c -fdump-ada-spec -C $SCRIPT_DIR/sysroot/usr/include/linux/ioctl.h
-arm-linux-gnueabihf-gcc -c -fdump-ada-spec -C $SCRIPT_DIR/sysroot/usr/include/linux/socket.h
+arm-linux-gnueabihf-gcc -c -fdump-ada-spec -C $SCRIPT_DIR/sysroot/usr/include/arm-linux-gnueabihf/sys/socket.h

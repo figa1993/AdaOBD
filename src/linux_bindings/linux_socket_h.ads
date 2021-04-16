@@ -14,10 +14,10 @@ package linux_socket_h is
    subtype uu_kernel_sa_family_t is unsigned_short;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/linux/socket.h:12
 
   -- address family  
-   subtype anon1080_array1082 is Interfaces.C.char_array (0 .. 125);
+   subtype anon1137_array1139 is Interfaces.C.char_array (0 .. 125);
    type uu_kernel_sockaddr_storage is record
       ss_family : aliased uu_kernel_sa_family_t;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/linux/socket.h:15
-      uu_data : aliased anon1080_array1082;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/linux/socket.h:17
+      uu_data : aliased anon1137_array1139;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/linux/socket.h:17
    end record
    with Convention => C_Pass_By_Copy;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/linux/socket.h:14
 

@@ -10,7 +10,6 @@ project Obd_Can_Telemetry is
    end Gnattest;
 
    package Compiler is
-      for Switches ("ada") use ("-gnatg");
    end Compiler;
 
 end Obd_Can_Telemetry;
