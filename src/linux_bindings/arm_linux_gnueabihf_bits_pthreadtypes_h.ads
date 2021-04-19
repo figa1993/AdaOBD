@@ -32,11 +32,11 @@ package arm_linux_gnueabihf_bits_pthreadtypes_h is
   -- Data structures for mutex handling.  The structure of the attribute
   --   type is not exposed on purpose.   
 
-   subtype pthread_mutexattr_t_array1244 is Interfaces.C.char_array (0 .. 3);
+   subtype pthread_mutexattr_t_array1243 is Interfaces.C.char_array (0 .. 3);
    type pthread_mutexattr_t (discr : unsigned := 0) is record
       case discr is
          when 0 =>
-            uu_size : aliased pthread_mutexattr_t_array1244;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/pthreadtypes.h:34
+            uu_size : aliased pthread_mutexattr_t_array1243;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/pthreadtypes.h:34
          when others =>
             uu_align : aliased int;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/pthreadtypes.h:35
       end case;
@@ -47,11 +47,11 @@ package arm_linux_gnueabihf_bits_pthreadtypes_h is
   -- Data structure for condition variable handling.  The structure of
   --   the attribute type is not exposed on purpose.   
 
-   subtype pthread_condattr_t_array1244 is Interfaces.C.char_array (0 .. 3);
+   subtype pthread_condattr_t_array1243 is Interfaces.C.char_array (0 .. 3);
    type pthread_condattr_t (discr : unsigned := 0) is record
       case discr is
          when 0 =>
-            uu_size : aliased pthread_condattr_t_array1244;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/pthreadtypes.h:43
+            uu_size : aliased pthread_condattr_t_array1243;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/pthreadtypes.h:43
          when others =>
             uu_align : aliased int;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/pthreadtypes.h:44
       end case;
@@ -65,11 +65,11 @@ package arm_linux_gnueabihf_bits_pthreadtypes_h is
   -- Once-only execution  
    subtype pthread_once_t is int;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/pthreadtypes.h:53
 
-   subtype anon1250_array1252 is Interfaces.C.char_array (0 .. 35);
+   subtype anon1249_array1251 is Interfaces.C.char_array (0 .. 35);
    type pthread_attr_t (discr : unsigned := 0) is record
       case discr is
          when 0 =>
-            uu_size : aliased anon1250_array1252;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/pthreadtypes.h:58
+            uu_size : aliased anon1249_array1251;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/pthreadtypes.h:58
          when others =>
             uu_align : aliased long;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/pthreadtypes.h:59
       end case;
@@ -77,13 +77,13 @@ package arm_linux_gnueabihf_bits_pthreadtypes_h is
    with Convention => C_Pass_By_Copy,
         Unchecked_Union => True;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/pthreadtypes.h:56
 
-   subtype pthread_mutex_t_array1256 is Interfaces.C.char_array (0 .. 23);
+   subtype pthread_mutex_t_array1255 is Interfaces.C.char_array (0 .. 23);
    type pthread_mutex_t (discr : unsigned := 0) is record
       case discr is
          when 0 =>
             uu_data : aliased arm_linux_gnueabihf_bits_thread_shared_types_h.uu_pthread_mutex_s;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/pthreadtypes.h:69
          when 1 =>
-            uu_size : aliased pthread_mutex_t_array1256;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/pthreadtypes.h:70
+            uu_size : aliased pthread_mutex_t_array1255;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/pthreadtypes.h:70
          when others =>
             uu_align : aliased long;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/pthreadtypes.h:71
       end case;
@@ -91,13 +91,13 @@ package arm_linux_gnueabihf_bits_pthreadtypes_h is
    with Convention => C_Pass_By_Copy,
         Unchecked_Union => True;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/pthreadtypes.h:72
 
-   subtype pthread_cond_t_array1260 is Interfaces.C.char_array (0 .. 47);
+   subtype pthread_cond_t_array1259 is Interfaces.C.char_array (0 .. 47);
    type pthread_cond_t (discr : unsigned := 0) is record
       case discr is
          when 0 =>
             uu_data : aliased arm_linux_gnueabihf_bits_thread_shared_types_h.uu_pthread_cond_s;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/pthreadtypes.h:77
          when 1 =>
-            uu_size : aliased pthread_cond_t_array1260;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/pthreadtypes.h:78
+            uu_size : aliased pthread_cond_t_array1259;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/pthreadtypes.h:78
          when others =>
             uu_align : aliased Long_Long_Integer;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/pthreadtypes.h:79
       end case;
@@ -108,13 +108,13 @@ package arm_linux_gnueabihf_bits_pthreadtypes_h is
   -- Data structure for reader-writer lock variable handling.  The
   --   structure of the attribute type is deliberately not exposed.   
 
-   subtype pthread_rwlock_t_array1263 is Interfaces.C.char_array (0 .. 31);
+   subtype pthread_rwlock_t_array1262 is Interfaces.C.char_array (0 .. 31);
    type pthread_rwlock_t (discr : unsigned := 0) is record
       case discr is
          when 0 =>
             uu_data : aliased arm_linux_gnueabihf_bits_pthreadtypes_arch_h.uu_pthread_rwlock_arch_t;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/pthreadtypes.h:88
          when 1 =>
-            uu_size : aliased pthread_rwlock_t_array1263;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/pthreadtypes.h:89
+            uu_size : aliased pthread_rwlock_t_array1262;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/pthreadtypes.h:89
          when others =>
             uu_align : aliased long;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/pthreadtypes.h:90
       end case;
@@ -122,11 +122,11 @@ package arm_linux_gnueabihf_bits_pthreadtypes_h is
    with Convention => C_Pass_By_Copy,
         Unchecked_Union => True;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/pthreadtypes.h:91
 
-   subtype pthread_rwlockattr_t_array1267 is Interfaces.C.char_array (0 .. 7);
+   subtype pthread_rwlockattr_t_array1266 is Interfaces.C.char_array (0 .. 7);
    type pthread_rwlockattr_t (discr : unsigned := 0) is record
       case discr is
          when 0 =>
-            uu_size : aliased pthread_rwlockattr_t_array1267;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/pthreadtypes.h:95
+            uu_size : aliased pthread_rwlockattr_t_array1266;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/pthreadtypes.h:95
          when others =>
             uu_align : aliased long;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/pthreadtypes.h:96
       end case;
@@ -140,11 +140,11 @@ package arm_linux_gnueabihf_bits_pthreadtypes_h is
   -- POSIX barriers data type.  The structure of the type is
   --   deliberately not exposed.   
 
-   subtype pthread_barrier_t_array1273 is Interfaces.C.char_array (0 .. 19);
+   subtype pthread_barrier_t_array1272 is Interfaces.C.char_array (0 .. 19);
    type pthread_barrier_t (discr : unsigned := 0) is record
       case discr is
          when 0 =>
-            uu_size : aliased pthread_barrier_t_array1273;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/pthreadtypes.h:110
+            uu_size : aliased pthread_barrier_t_array1272;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/pthreadtypes.h:110
          when others =>
             uu_align : aliased long;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/pthreadtypes.h:111
       end case;
@@ -152,11 +152,11 @@ package arm_linux_gnueabihf_bits_pthreadtypes_h is
    with Convention => C_Pass_By_Copy,
         Unchecked_Union => True;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/pthreadtypes.h:112
 
-   subtype pthread_barrierattr_t_array1244 is Interfaces.C.char_array (0 .. 3);
+   subtype pthread_barrierattr_t_array1243 is Interfaces.C.char_array (0 .. 3);
    type pthread_barrierattr_t (discr : unsigned := 0) is record
       case discr is
          when 0 =>
-            uu_size : aliased pthread_barrierattr_t_array1244;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/pthreadtypes.h:116
+            uu_size : aliased pthread_barrierattr_t_array1243;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/pthreadtypes.h:116
          when others =>
             uu_align : aliased int;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/pthreadtypes.h:117
       end case;

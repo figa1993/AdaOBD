@@ -98,7 +98,7 @@ package arm_linux_gnueabihf_bits_thread_shared_types_h is
   --     the flag PTHREAD_MUTEX_ELISION_NP. This is done concurrently. Afterwards
   --     the lock / unlock functions are using specific elision code-paths.   
 
-   type anon1233_union1234 (discr : unsigned := 0) is record
+   type anon1232_union1233 (discr : unsigned := 0) is record
       case discr is
          when 0 =>
             uu_spins : aliased int;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/thread-shared-types.h:160
@@ -114,50 +114,50 @@ package arm_linux_gnueabihf_bits_thread_shared_types_h is
       uu_owner : aliased int;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/thread-shared-types.h:122
       uu_kind : aliased int;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/thread-shared-types.h:148
       uu_nusers : aliased unsigned;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/thread-shared-types.h:151
-      anon5737 : aliased anon1233_union1234;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/thread-shared-types.h:162
+      anon5734 : aliased anon1232_union1233;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/thread-shared-types.h:162
    end record
    with Convention => C_Pass_By_Copy;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/thread-shared-types.h:118
 
   -- Common definition of pthread_cond_t.  
-   type anon1235_struct1237 is record
+   type anon1234_struct1236 is record
       uu_low : aliased unsigned;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/thread-shared-types.h:178
       uu_high : aliased unsigned;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/thread-shared-types.h:179
    end record
    with Convention => C_Pass_By_Copy;
-   type anon1235_union1236 (discr : unsigned := 0) is record
+   type anon1234_union1235 (discr : unsigned := 0) is record
       case discr is
          when 0 =>
             uu_wseq : aliased Extensions.unsigned_long_long;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/thread-shared-types.h:175
          when others =>
-            uu_wseq32 : aliased anon1235_struct1237;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/thread-shared-types.h:180
+            uu_wseq32 : aliased anon1234_struct1236;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/thread-shared-types.h:180
       end case;
    end record
    with Convention => C_Pass_By_Copy,
         Unchecked_Union => True;
-   type anon1235_struct1239 is record
+   type anon1234_struct1238 is record
       uu_low : aliased unsigned;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/thread-shared-types.h:187
       uu_high : aliased unsigned;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/thread-shared-types.h:188
    end record
    with Convention => C_Pass_By_Copy;
-   type anon1235_union1238 (discr : unsigned := 0) is record
+   type anon1234_union1237 (discr : unsigned := 0) is record
       case discr is
          when 0 =>
             uu_g1_start : aliased Extensions.unsigned_long_long;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/thread-shared-types.h:184
          when others =>
-            uu_g1_start32 : aliased anon1235_struct1239;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/thread-shared-types.h:189
+            uu_g1_start32 : aliased anon1234_struct1238;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/thread-shared-types.h:189
       end case;
    end record
    with Convention => C_Pass_By_Copy,
         Unchecked_Union => True;
-   type anon1235_array1240 is array (0 .. 1) of aliased unsigned;
+   type anon1234_array1239 is array (0 .. 1) of aliased unsigned;
    type uu_pthread_cond_s is record
-      anon5745 : aliased anon1235_union1236;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/thread-shared-types.h:181
-      anon5752 : aliased anon1235_union1238;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/thread-shared-types.h:190
-      uu_g_refs : aliased anon1235_array1240;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/thread-shared-types.h:191
-      uu_g_size : aliased anon1235_array1240;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/thread-shared-types.h:192
+      anon5742 : aliased anon1234_union1235;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/thread-shared-types.h:181
+      anon5749 : aliased anon1234_union1237;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/thread-shared-types.h:190
+      uu_g_refs : aliased anon1234_array1239;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/thread-shared-types.h:191
+      uu_g_size : aliased anon1234_array1239;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/thread-shared-types.h:192
       uu_g1_orig_size : aliased unsigned;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/thread-shared-types.h:193
       uu_wrefs : aliased unsigned;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/thread-shared-types.h:194
-      uu_g_signals : aliased anon1235_array1240;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/thread-shared-types.h:195
+      uu_g_signals : aliased anon1234_array1239;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/thread-shared-types.h:195
    end record
    with Convention => C_Pass_By_Copy;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/thread-shared-types.h:171
 

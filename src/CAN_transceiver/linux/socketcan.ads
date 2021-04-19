@@ -10,7 +10,7 @@ package SocketCAN is
    --   To start and stop the device
    type Device is private;
 
-   procedure Start (This : in out Device);
+   procedure Start (This : in out Device; Device_Name : Unbounded_String);
    procedure Stop (This : Device);
    function Receive (This : Device) return Can.CAN_Frame;
    procedure Send (This : Device; Frame : Can.CAN_Frame);

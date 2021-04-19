@@ -51,9 +51,9 @@ package arm_linux_gnueabihf_sys_select_h is
   -- XPG4.2 requires this member name.  Otherwise avoid the name
   --       from the global namespace.   
 
-   type fd_set_array1202 is array (0 .. 31) of aliased uu_fd_mask;
+   type fd_set_array1201 is array (0 .. 31) of aliased uu_fd_mask;
    type fd_set is record
-      uu_fds_bits : aliased fd_set_array1202;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/sys/select.h:67
+      uu_fds_bits : aliased fd_set_array1201;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/sys/select.h:67
    end record
    with Convention => C_Pass_By_Copy;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/sys/select.h:70
 

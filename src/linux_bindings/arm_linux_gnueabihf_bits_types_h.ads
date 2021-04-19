@@ -142,9 +142,9 @@ package arm_linux_gnueabihf_bits_types_h is
    subtype uu_pid_t is int;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/types.h:152
 
   -- Type of file system IDs.   
-   type uu_fsid_t_array1117 is array (0 .. 1) of aliased int;
+   type uu_fsid_t_array1115 is array (0 .. 1) of aliased int;
    type uu_fsid_t is record
-      uu_val : aliased uu_fsid_t_array1117;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/types.h:153
+      uu_val : aliased uu_fsid_t_array1115;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/types.h:153
    end record
    with Convention => C_Pass_By_Copy;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/types.h:153
 

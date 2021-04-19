@@ -1,9 +1,13 @@
 pragma Ada_2012;
 
 with GNAT.Sockets.Constants; use GNAT.Sockets.Constants;
+with Interfaces.C; use Interfaces.C;
+with Interfaces.C.Strings; use Interfaces.C.Strings;
 
 with linux_can_h; use linux_can_h;
 with arm_linux_gnueabihf_bits_socket_h; use arm_linux_gnueabihf_bits_socket_h;
+with net_if_h; use net_if_h;
+with Ada.Text_IO; use Ada.Text_IO;
 
 package body SocketCAN is
 
@@ -13,18 +17,65 @@ package body SocketCAN is
    -- Start --
    -----------
 
-   procedure Start (This : in out Device) is
+   procedure Start (This : in out Device; Device_Name : Unbounded_String) is
+      -- @TODO: does these need to persist while the device is in scope?
+      -- @TODO: Figure out how to zero the Socket_Address data before use
+      Socket_Address_CAN : aliased sockaddr_can;
+--      Socket_Address : aliased Sockaddr
+--        with Address => Socket_Address_CAN'Address;
+
+      Interface_Request : aliased ifreq;
    begin
+
+      Put_Line ("Starting SocketCAN device");
+
+      -- @TODO: zero initialize the Socket Address?
+
       --  Request a socket from the system
       This.Socket_FD := Sockets.C_Socket( PF_CAN, SOCK_RAW, CAN_RAW );
+
       --  Check socket resource was provided without error
+      if This.Socket_FD < 0 then
+         raise Program_Error with "System failed to open socket";
+      end if;
 
       --  Set the Socket address family to CAN
+      --  @NOTE: This is NOT PORTABLE and should use the value AF_CAN
+      --  which the binding generator failed to convert
+      Socket_Address_CAN.can_family := PF_CAN;
+
+      --  Convert the interface name to the index used in the system
+      declare
+         Chars_Written : size_t;
+         Interface_Name_Access : chars_ptr :=
+           To_Chars_Ptr(
+                        Interface_Request.ifr_ifrn.ifrn_name
+                          'Unrestricted_Access );
+      begin
+         To_C( To_String(Device_Name), Interface_Request.ifr_ifrn.ifrn_name,
+               Chars_Written, True );
+         Interface_Request.Ifr_Ifru.Ifru_Ivalue :=
+           Interfaces.C.Int(If_Nametoindex (Interface_Name_Access ) );
+      end;
+
+      --  Check if the interface name was recognized by the system
+      if Interface_Request.ifr_ifru.Ifru_Ivalue = 0 then
+         raise Program_Error with
+         "Interface " & To_String(Device_Name) &
+           " does not exist";
+      end if;
+
 
       --  Convert the CAN socket Address to a raw socket address
+
       --  Bind the socket
-      pragma Compile_Time_Warning (Standard.True, "Start unimplemented");
-      raise Program_Error with "Unimplemented procedure Start";
+      --  @TODO use a more portable, less hard-coded way to figure out
+      --  the length of the address
+      if Sockets.C_Bind( This.Socket_FD, Socket_Address_CAN'Address,
+                         Socket_Address_CAN'Size / 8) < 0 then
+         raise Program_Error with "System failed to bind socket";
+      end if;
+
    end Start;
 
    ----------

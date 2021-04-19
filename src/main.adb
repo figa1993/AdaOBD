@@ -1,6 +1,9 @@
 with GNAT.Command_Line;   use GNAT.Command_Line;
 with Ada.Text_IO; use Ada.Text_IO;
-with PIDs; use PIDs;
+-- with PIDs; use PIDs;
+with Ada.Strings.Unbounded; use Ada.Strings.Unbounded;
+with SocketCAN; use SocketCAN;
+
 
 procedure Main is
 
@@ -10,6 +13,11 @@ begin
 
    --   Initialize the CAN_Transceiver with the device handle,
    --   Establish a connection for CAN_Transceiver
+   declare
+      Dev : SocketCAN.Device;
+   begin
+      SocketCAN.Start (Dev, To_Unbounded_String ("can0") );
+   end;
 
    --   Register callbacks on the CAN_Transceiver, Encoder, and Decoder
 
