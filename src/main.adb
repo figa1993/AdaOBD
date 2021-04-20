@@ -8,7 +8,7 @@ with SocketCAN; use SocketCAN;
 procedure Main is
 
 begin
-   Put_Line ("AdaOBD version 0.0.1");
+   Put_Line ("AdaOBD version 0.0.2");
    --   Parse command line arguments
 
    --   Initialize the CAN_Transceiver with the device handle,
