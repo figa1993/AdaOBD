@@ -1,10 +1,19 @@
 pragma Ada_2012;
 
-with GNAT.Sockets.Constants; use GNAT.Sockets.Constants;
+--   Standard Ada packages
 with Interfaces.C; use Interfaces.C;
 with Interfaces.C.Strings; use Interfaces.C.Strings;
+with System; use System;
+
+--   GNAT specific packages
 with GNAT.OS_Lib; use GNAT.OS_Lib;
 
+--   Internal non-portable GNAT packages
+pragma Warnings(Off);
+with GNAT.Sockets.Constants; use GNAT.Sockets.Constants;
+pragma Warnings(On);
+
+--   Non-portable Linux binding packages
 with linux_can_h; use linux_can_h;
 with arm_linux_gnueabihf_bits_socket_h; use arm_linux_gnueabihf_bits_socket_h;
 with net_if_h; use net_if_h;
@@ -31,7 +40,7 @@ package body SocketCAN is
 
       Put_Line ("Starting SocketCAN device " & To_String(Device_Name) );
 
-      -- @TODO: zero initialize the Socket Address?
+      --  @TODO: zero initialize the Socket Address?
 
       --  Request a socket from the system
       This.Socket_FD := Sockets.C_Socket( PF_CAN, SOCK_RAW, CAN_RAW );
@@ -51,30 +60,26 @@ package body SocketCAN is
          Chars_Written : Size_T;
          Interface_Name_Access : Chars_Ptr :=
            To_Chars_Ptr(
-                        Interface_Request.Ifr_Ifrn.Ifrn_Name
+                        Interface_Request.ifr_ifrn.ifrn_name
                           'Unrestricted_Access );
       begin
-         To_C( To_String(Device_Name), Interface_Request.Ifr_Ifrn.Ifrn_Name,
+         To_C( To_String(Device_Name), Interface_Request.ifr_ifrn.ifrn_name,
                Chars_Written, True );
          Interface_Request.Ifr_Ifru.Ifru_Ivalue :=
-           Interfaces.C.Int(If_Nametoindex (Interface_Name_Access ) );
+           Interfaces.C.int(if_nametoindex (Interface_Name_Access ) );
       end;
 
       --  Check if the interface name was recognized by the system
-      if Interface_Request.Ifr_Ifru.Ifru_Ivalue = 0 then
+      if Interface_Request.ifr_ifru.ifru_ivalue = 0 then
          raise Program_Error with
            "Interface " & To_String(Device_Name) &
            " does not exist";
       end if;
       Socket_Address_CAN.can_ifindex := Interface_Request.ifr_ifru.ifru_ivalue;
 
-      --  Convert the CAN socket Address to a raw socket address
-
       --  Bind the socket
-      --  @TODO use a more portable, less hard-coded way to figure out
-      --  the length of the address
       Return_Code := Sockets.C_Bind( This.Socket_FD, Socket_Address_CAN'Address,
-                                     Socket_Address_CAN'Size / 8);
+                                     Socket_Address_CAN'Size / Storage_Unit);
       if Return_Code < 0 then
          raise Program_Error with
            "System failed to bind socket: " & Errno_Message;
