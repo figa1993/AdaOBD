@@ -1,6 +1,6 @@
 with Message; use Message;
 with OBD_Frame; use OBD_Frame;
-with Encoder; use Encoder;
+--with Encoder; use Encoder;
 
 package VehiculeSpeedMsg is
 
@@ -9,17 +9,18 @@ package VehiculeSpeedMsg is
    SPEED_DATA_INDEX : Payload_Length_Type := 1;
 
 
-   type VehiculeSpeedMsgType is new OBD2_Message with private;
-   type VehiculeSpeed is range 0 .. 255;
+   type VehiculeSpeedMsg_Type is new OBD2_Message_Type with private;
+   type VehiculeSpeed_Type is range 0 .. 255;
 
-   overriding procedure Serialize(This : in out VehiculeSpeedMsgType;
+   overriding procedure Encode (This : in out VehiculeSpeedMsg_Type;
                        theFrame: out Frame_type);
-   overriding procedure Deserialize (This       : in out VehiculeSpeedMsgType;
+   overriding procedure Decode (This       : in out VehiculeSpeedMsg_Type;
                                      framedData : in Frame_Type);
+
 private
 
-   type VehiculeSpeedMsgType is new OBD2_Message with record
-      Speed : VehiculeSpeed := 0;
+   type VehiculeSpeedMsg_Type is new OBD2_Message_Type with record
+      Speed : VehiculeSpeed_Type := 0;
    end record;
 
 
