@@ -1,4 +1,4 @@
-project Obd_Can_Telemetry is
+project AdaOBD is
 
    for Source_Dirs use ("src/**");
    for Object_Dir use "obj";
@@ -10,7 +10,8 @@ project Obd_Can_Telemetry is
    end Gnattest;
 
    package Compiler is
+      for Switches ("ada") use ("-gnat2020");
    end Compiler;
 
-end Obd_Can_Telemetry;
+end AdaOBD;
 

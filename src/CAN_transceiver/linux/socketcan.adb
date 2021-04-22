@@ -1,5 +1,3 @@
-pragma Ada_2012;
-
 --   Standard Ada packages
 with Interfaces.C; use Interfaces.C;
 with Interfaces.C.Strings; use Interfaces.C.Strings;
@@ -16,6 +14,7 @@ pragma Warnings(On);
 --   Non-portable Linux binding packages
 with linux_can_h; use linux_can_h;
 with arm_linux_gnueabihf_bits_socket_h; use arm_linux_gnueabihf_bits_socket_h;
+with arm_linux_gnueabihf_sys_socket_h; use arm_linux_gnueabihf_sys_socket_h;
 with net_if_h; use net_if_h;
 with Ada.Text_IO; use Ada.Text_IO;
 
@@ -57,7 +56,7 @@ package body SocketCAN is
 
       --  Convert the interface name to the index used in the system
       declare
-         Chars_Written : Size_T;
+         Chars_Written : size_t;
          Interface_Name_Access : Chars_Ptr :=
            To_Chars_Ptr(
                         Interface_Request.ifr_ifrn.ifrn_name
@@ -101,10 +100,18 @@ package body SocketCAN is
    -- Receive --
    -------------
 
+   --  @TODO: Determine if this should be a blocking call with a timeout
    function Receive (This : Device) return CAN.CAN_Frame is
+      Frame : CAN.CAN_Frame := (Is_Extended => False, others => <> );
+      Bytes_Read : Interfaces.C.int;
    begin
-      pragma Compile_Time_Warning (Standard.True, "Receive unimplemented");
-      return raise Program_Error with "Unimplemented function Receive";
+
+      --  Receive bytes from the socket using recv system call
+      if recv( This.Socket_FD, Frame'Address, Frame'Size / Storage_Unit, 0 ) > 0 then
+         Put_Line( Frame'Image );
+      end if;
+
+      return Frame;
 
       -- use recvmsg() system call to receive message bytes
       -- construct a CAN Frame from the received bytes
