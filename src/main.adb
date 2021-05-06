@@ -8,7 +8,7 @@ with CAN; use CAN;
 
 procedure Main is
    Dev : SocketCAN.Device;
-   Frame : CAN.CAN_Frame := (Is_Extended => False, others => <> );
+   Frame : CAN.CAN_Frame;
    Message_Counter : Integer := 0;
 begin
    Put_Line ("AdaOBD version 0.0.3");

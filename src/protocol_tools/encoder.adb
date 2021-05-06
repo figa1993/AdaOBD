@@ -22,9 +22,9 @@ package body Encoder is
    begin
 
       framedData.CAN_ID := CAN_ID_Req;
-      framedData.Length := get_length(message);
-      framedData.Service := get_service(message);
-      framedData.PID := get_pid(message);
+      framedData.Length := Get_Length(message);
+      framedData.Service := Get_Service(message);
+      framedData.PID := Get_PID(message);
       framedData.Payload := framedData.Payload;
 
       --Put_Line("Bit: ");

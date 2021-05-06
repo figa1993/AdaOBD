@@ -13,5 +13,11 @@ project AdaOBD is
       for Switches ("ada") use ("-gnat2020");
    end Compiler;
 
+   package Ide is
+      for Connection_Tool use "openocd";
+      for Program_Host use "192.168.1.22:2345";
+      for Communication_Protocol use "remote";
+   end Ide;
+
 end AdaOBD;
 

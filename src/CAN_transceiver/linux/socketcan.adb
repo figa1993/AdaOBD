@@ -102,16 +102,33 @@ package body SocketCAN is
 
    --  @TODO: Determine if this should be a blocking call with a timeout
    function Receive (This : Device) return CAN.CAN_Frame is
-      Frame : CAN.CAN_Frame := (Is_Extended => False, others => <> );
-      Bytes_Read : Interfaces.C.int;
+      Frame : CAN.CAN_Frame;
    begin
 
       --  Receive bytes from the socket using recv system call
-      if recv( This.Socket_FD, Frame'Address, Frame'Size / Storage_Unit, 0 ) > 0 then
-         Put_Line( Frame'Image );
+      if Recv (This.Socket_FD, Frame'Address, Frame'Size / Storage_Unit, 0) > 0 then
+         Put_Line (Frame'Image);
       end if;
 
       return Frame;
+      ------------------ NOTES -------------
+      -- Observation: The length of the frame is unknown apriori (it is
+      -- dependent on fields in the header)
+
+      -- Assumption: Once the protocol is determined, the length of the frame
+      -- is known
+
+      -- Observation: Error handling should be performed by hardware
+      -- In the general case there are multi-frame messages (but not for OBD-II)
+      -- how to handle dropped packets.
+      ------------------ /NOTES ------------
+
+
+      -- Read in the arbitartion field.
+      -- Read in the DLC
+      -- Read in the Data
+
+
 
       -- use recvmsg() system call to receive message bytes
       -- construct a CAN Frame from the received bytes

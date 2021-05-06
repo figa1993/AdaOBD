@@ -10,12 +10,12 @@ package Decoder is
    procedure decode (framedData : in Frame_Type)
      with Pre => framedData.Length /= 0;
 
-   procedure subscribe (Serive_id : in Service_Type;
+   procedure subscribe (Service_ID : in Service_Type;
                         Pid       : in PID_Type;
                         Message   : in OBD2_Message);
 
 
-   function build_key (Serive_id : in Service_Type;
+   function build_key (Service_ID : in Service_Type;
                        Pid       : in PID_Type) return Message_Key_Type;
 
 private

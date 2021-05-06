@@ -12,9 +12,9 @@ package Message is
    procedure Deserialize (This : in out OBD2_Message;
                          framedData : in Frame_Type) is abstract;
 
-   function get_pid (This : in OBD2_Message) return PID_Type;
-   function get_service (This : in OBD2_Message) return Service_Type;
-   function get_length (This : in OBD2_Message) return Payload_Length_Type;
+   function Get_PID (This : in OBD2_Message) return PID_Type;
+   function Get_Service (This : in OBD2_Message) return Service_Type;
+   function Get_Length (This : in OBD2_Message) return Payload_Length_Type;
 
    --  procedure subscribe(This : OBD2_Message) is abstract;
 
