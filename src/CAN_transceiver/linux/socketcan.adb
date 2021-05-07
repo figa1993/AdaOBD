@@ -140,23 +140,20 @@ package body SocketCAN is
    -- Send --
    ----------
 
-   procedure Send (This : Device; Frame : CAN.CAN_Frame) is
-   begin
-      raise Program_Error with "Unimplemented procedure Send";
-   end Send;
-
    procedure Send (This : in out Device; Payload : Payload_Type;
                    Tx_Arbitration_Id : Ext_Arbitration_ID_Type ) is
       Frame : aliased CAN.CAN_Frame(Is_Extended=>True);
       Bytes_Written : int;
    begin
+      --   @TODO How does this interact with filtering capabilities?
+
       --   Encapsulate the payload into a CAN frame
       Frame.Ext_Arbitration_ID := Tx_Arbitration_Id;
       Frame.DLC := Payload'Length;
       Frame.Payload := Payload;
 
       --   Perform system calls to send the Frame
-      Bytes_Written := send( This.Socket_FD,
+      Bytes_Written := Send( This.Socket_FD,
                              Frame'Address,
                              Frame'Size/Storage_Unit,
                              0);
@@ -164,5 +161,12 @@ package body SocketCAN is
       Put_Line("Wrote " & Bytes_Written'Image & " bytes");
 
    end Send;
+
+   procedure Subscribe( This : in out Device;
+                        Rx_Arbitration_Id : Ext_Arbitration_ID_Type;
+                        Payload_Handler : CAN_Payload_Handler_Type) is
+   begin
+      null;
+   end Subscribe;
 
 end SocketCAN;
