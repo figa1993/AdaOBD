@@ -1,14 +1,14 @@
-package body Message is
+package body OBD.Message is
 
 
-   procedure Subscribe (This : in out OBD2_Message_Type;
+   procedure Subscribe (This : in out Message_Type;
                         theHandler : in MessageHandler_Type) is
    begin
       This.handlers.Append(theHandler);
    end Subscribe;
 
 
-   procedure Process (This : in out OBD2_Message_Type) is
+   procedure Process (This : in out Message_Type) is
    begin
       for theHandler in This.handlers.Iterate loop
          Notify(Element(theHandler));
@@ -16,25 +16,24 @@ package body Message is
    end Process;
 
 
-   function Get_PID(This : in OBD2_Message_Type) return PID_Type is
+   function Get_PID(This : in Message_Type) return PID_Type is
    begin
       return This.pid;
    end Get_PID;
 
 
-
-   function Get_Service(This : in OBD2_Message_Type) return Service_Type is
+   function Get_Service(This : in Message_Type) return Service_Type is
    begin
       return This.service;
    end Get_Service;
 
-   function Get_Length(This : in OBD2_Message_Type) return Payload_Length_Type is
+   function Get_Length(This : in Message_Type) return Payload_Length_Type is
    begin
       return This.length;
    end Get_Length;
 
 
-   procedure BuildRequest (This : in out OBD2_Message_Type;
+   procedure BuildRequest (This : in out Message_Type;
                           framedData : out Frame_Type) is
    begin
       framedData.CAN_ID := CAN_ID_Req;
@@ -45,4 +44,4 @@ package body Message is
    end BuildRequest;
 
 
-end Message;
+end OBD.Message;

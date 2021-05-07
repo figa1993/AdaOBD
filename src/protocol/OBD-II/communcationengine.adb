@@ -11,6 +11,8 @@ package body CommuncationEngine is
    --   end case;
    --end Show_Bit;
 
+   --   Subprogram to control which message the CommunicationEngine will
+   --   request
    procedure Subscribe(This    : in out CommuncationEngine_Type;
                        Message : in OBD2_Message_Type) is
       theKey     : Message_Key_Type := 0;
@@ -22,6 +24,7 @@ package body CommuncationEngine is
 
 
 
+   --   Builds a unique key from an OBD message Service Type and PID
    function Build_key(This       : in out CommuncationEngine_Type;
                       Serive_id  : in Service_Type;
                       Pid        : in PID_Type) return Message_Key_Type is
@@ -34,6 +37,11 @@ package body CommuncationEngine is
    end build_key;
 
 
+   --   @TODO Per Section 7 of ISO 1576-2 the OBD-II Message must be encoded
+   --   in a CAN frame with a DLC of 8 and and 8 byte payload. The value
+   --   of the unused bytes is not defined.
+
+
    procedure SendRequest(This       : in out CommuncationEngine_Type;
                          framedData : in Frame_Type) is
 
@@ -44,6 +52,8 @@ package body CommuncationEngine is
       null;
    end SendRequest;
 
+   --   @TODO: How is this used?
+   --   Processes an OBD Frame into a message.
    procedure ReceiveResponse(This       : in out CommuncationEngine_Type;
                              framedData : in Frame_Type) is
 

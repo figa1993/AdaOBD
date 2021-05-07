@@ -2,9 +2,9 @@ with OBD_Frame; use OBD_Frame;
 with Ada.Containers.Indefinite_Ordered_Maps;  use Ada.Containers;
 with Message; use Message;
 
-
 package CommuncationEngine is
 
+   --   Type that provides the service of requesting OBD-II messages
    type CommuncationEngine_Type is tagged private;
    type Duration_Type is new Natural;
    type Message_Key_Type is range 0 .. 16#FFFF#;

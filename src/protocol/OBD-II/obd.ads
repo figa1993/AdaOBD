@@ -1,4 +1,4 @@
-package OBD_Frame is
+package OBD is
 
    --   @TODO: Still need to figure out how many bits the length field is
    type Payload_Length_Type is range 1 .. 4;
@@ -17,7 +17,6 @@ package OBD_Frame is
    --  with Scalar_Storage_Order => System.High_Order_First;
 
    type Frame_Type is record
-      CAN_ID  : Identifier_Type;
       Length  : Payload_Length_Type;
       Service : Service_Type;
       PID     : PID_Type;
@@ -28,7 +27,6 @@ package OBD_Frame is
 
 
   -- for Frame_Type use record
-   --   CAN_ID at range 1 .. 11;
     --  Length at range 11 .. 12
    --end record;
 
@@ -39,4 +37,4 @@ package OBD_Frame is
 
    CAN_ID_Req : Identifier_Type := 16#7DF#;
 
-end OBD_Frame;
+end OBD;
