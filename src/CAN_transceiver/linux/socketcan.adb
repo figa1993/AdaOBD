@@ -12,32 +12,32 @@ with GNAT.Sockets.Constants; use GNAT.Sockets.Constants;
 pragma Warnings(On);
 
 --   Non-portable Linux binding packages
-with linux_can_h; use linux_can_h;
-with arm_linux_gnueabihf_bits_socket_h; use arm_linux_gnueabihf_bits_socket_h;
-with arm_linux_gnueabihf_sys_socket_h; use arm_linux_gnueabihf_sys_socket_h;
-with net_if_h; use net_if_h;
+with Linux_Can_H; use Linux_Can_H;
+with Arm_Linux_Gnueabihf_Bits_Socket_H; use Arm_Linux_Gnueabihf_Bits_Socket_H;
+with Arm_Linux_Gnueabihf_Sys_Socket_H; use Arm_Linux_Gnueabihf_Sys_Socket_H;
+with Net_If_H; use Net_If_H;
 with Ada.Text_IO; use Ada.Text_IO;
 
 package body SocketCAN is
 
-   package Socket_Bits renames arm_linux_gnueabihf_bits_socket_h;
+   package Socket_Bits renames Arm_Linux_Gnueabihf_Bits_Socket_H;
 
    -----------
    -- Start --
    -----------
 
-   procedure Start (This : in out Device; Device_Name : Unbounded_String) is
+   procedure Initialize (This : in out Device) is
       -- @TODO: does these need to persist while the device is in scope?
       -- @TODO: Figure out how to zero the Socket_Address data before use
-      Socket_Address_CAN : aliased sockaddr_can;
---      Socket_Address : aliased Sockaddr
---        with Address => Socket_Address_CAN'Address;
+      Socket_Address_CAN : aliased Sockaddr_Can;
+      --      Socket_Address : aliased Sockaddr
+      --        with Address => Socket_Address_CAN'Address;
 
-      Interface_Request : aliased ifreq;
-      Return_Code : int ;
+      Interface_Request : aliased Ifreq;
+      Return_Code : Int ;
    begin
 
-      Put_Line ("Starting SocketCAN device " & To_String(Device_Name) );
+      Put_Line ("Starting SocketCAN device " & To_String(This.Device_Name.all) );
 
       --  @TODO: zero initialize the Socket Address?
 
@@ -56,25 +56,26 @@ package body SocketCAN is
 
       --  Convert the interface name to the index used in the system
       declare
-         Chars_Written : size_t;
+         Chars_Written : Size_T;
          Interface_Name_Access : Chars_Ptr :=
            To_Chars_Ptr(
-                        Interface_Request.ifr_ifrn.ifrn_name
+                        Interface_Request.Ifr_Ifrn.Ifrn_Name
                           'Unrestricted_Access );
       begin
-         To_C( To_String(Device_Name), Interface_Request.ifr_ifrn.ifrn_name,
+         To_C( To_String(This.Device_Name.all),
+               Interface_Request.Ifr_Ifrn.Ifrn_Name,
                Chars_Written, True );
          Interface_Request.Ifr_Ifru.Ifru_Ivalue :=
-           Interfaces.C.int(if_nametoindex (Interface_Name_Access ) );
+           Interfaces.C.Int(If_Nametoindex (Interface_Name_Access ) );
       end;
 
       --  Check if the interface name was recognized by the system
-      if Interface_Request.ifr_ifru.ifru_ivalue = 0 then
+      if Interface_Request.Ifr_Ifru.Ifru_Ivalue = 0 then
          raise Program_Error with
-           "Interface " & To_String(Device_Name) &
+           "Interface " & To_String(This.Device_Name.all) &
            " does not exist";
       end if;
-      Socket_Address_CAN.can_ifindex := Interface_Request.ifr_ifru.ifru_ivalue;
+      Socket_Address_CAN.Can_Ifindex := Interface_Request.Ifr_Ifru.Ifru_Ivalue;
 
       --  Bind the socket
       Return_Code := Sockets.C_Bind( This.Socket_FD, Socket_Address_CAN'Address,
@@ -84,7 +85,7 @@ package body SocketCAN is
            "System failed to bind socket: " & Errno_Message;
       end if;
 
-   end Start;
+   end Initialize;
 
    ----------
    -- Stop --
@@ -92,7 +93,6 @@ package body SocketCAN is
 
    procedure Stop (This : Device) is
    begin
-      pragma Compile_Time_Warning (Standard.True, "Stop unimplemented");
       raise Program_Error with "Unimplemented procedure Stop";
    end Stop;
 
@@ -142,8 +142,27 @@ package body SocketCAN is
 
    procedure Send (This : Device; Frame : CAN.CAN_Frame) is
    begin
-      pragma Compile_Time_Warning (Standard.True, "Send unimplemented");
       raise Program_Error with "Unimplemented procedure Send";
+   end Send;
+
+   procedure Send (This : in out Device; Payload : Payload_Type;
+                   Tx_Arbitration_Id : Ext_Arbitration_ID_Type ) is
+      Frame : aliased CAN.CAN_Frame;
+      Bytes_Written : int;
+   begin
+      --   Encapsulate the payload into a CAN frame
+      Frame.Ext_Arbitration_ID := Tx_Arbitration_Id;
+      Frame.DLC := Payload'Length;
+      Frame.Payload := Payload;
+
+      --   Perform system calls to send the Frame
+      Bytes_Written := send( This.Socket_FD,
+                             Frame'Address,
+                             Frame'Size/Storage_Unit,
+                             0);
+
+      Put_Line("Wrote " & Bytes_Written'Image & " bytes");
+
    end Send;
 
 end SocketCAN;

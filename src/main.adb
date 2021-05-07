@@ -4,20 +4,27 @@ with Ada.Strings.Unbounded; use Ada.Strings.Unbounded;
 with SocketCAN; use SocketCAN;
 with CAN; use CAN;
 with OBD; use OBD;
+with OBD.CommuncationEngine; use OBD.CommuncationEngine;
+with OBD.PIDs; use OBD.PIDs;
 
 
 procedure Main is
-   Dev : SocketCAN.Device;
+   Device_Name : aliased Unbounded_String := To_Unbounded_String("can0");
+   Dev : aliased SocketCAN.Device (Device_Name'Access);
    Frame : CAN.CAN_Frame;
    Message_Counter : Integer := 0;
+   CommuncationEngine : CommuncationEngine_Type(Dev'Access);
+   PID_0 : Supported_PIDs_Bitfield(1,0,4);
 begin
-   Put_Line ("AdaOBD version 0.0.3");
+   Put_Line ("AdaOBD version 0.0.4");
    --   Parse command line arguments
 
    --   Initialize the CAN_Transceiver with the device handle,
    --   Establish a connection for CAN_Transceiver
 
-   SocketCAN.Start (Dev, To_Unbounded_String ("can0") );
+   Dev.Initialize;
+
+   CommuncationEngine.Request_PID(Message => PID_0);
 
    while True loop
       Message_Counter := Message_Counter + 1;

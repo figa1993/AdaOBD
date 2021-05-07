@@ -18,6 +18,8 @@ project AdaOBD is
       for Communication_Protocol use "remote";
    end Ide;
 
-end AdaOBD;
+   for Target use "arm-linux-gnueabihf";
+   for Runtime ("ada") use "native";
 
+end AdaOBD;
 

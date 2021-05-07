@@ -4,15 +4,17 @@ package body OBD.Message is
    procedure Subscribe (This : in out Message_Type;
                         theHandler : in MessageHandler_Type) is
    begin
-      This.handlers.Append(theHandler);
+      -- This.handlers.Append(theHandler);
+      null;
    end Subscribe;
 
 
    procedure Process (This : in out Message_Type) is
    begin
-      for theHandler in This.handlers.Iterate loop
-         Notify(Element(theHandler));
-      end loop;
+      --  for theHandler in This.handlers.Iterate loop
+      --     Notify(Element(theHandler));
+      --  end loop;
+      null;
    end Process;
 
 
@@ -36,7 +38,6 @@ package body OBD.Message is
    procedure BuildRequest (This : in out Message_Type;
                           framedData : out Frame_Type) is
    begin
-      framedData.CAN_ID := CAN_ID_Req;
       framedData.Length := get_length(This);
       framedData.Service := get_service(This);
       framedData.PID := get_pid(This);

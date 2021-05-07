@@ -2,7 +2,7 @@ with System.Aux_DEC; use System.Aux_DEC;
 with OBD.Message; use OBD.Message;
 
 -- Package which will define all the OBD-II messages (PIDs)
-package PIDs is
+package OBD.PIDs is
 
    --  @TODO: Consider creating an abstraction which handles the many to one
    --  relationship of different messages with the same deserialization.
@@ -27,7 +27,7 @@ package PIDs is
    type VehiculeSpeedMsg_Type is new Message_Type with private;
    type VehiculeSpeed_Type is range 0 .. 255;
 
-   overriding procedure Encode (This : in out VehiculeSpeedMsg_Type;
+   overriding procedure Encode (This : in VehiculeSpeedMsg_Type;
                                 TheFrame: out Frame_Type);
    overriding procedure Decode (This       : in out VehiculeSpeedMsg_Type;
                                 FramedData : in Frame_Type);
@@ -40,4 +40,4 @@ private
    type VehiculeSpeedMsg_Type is new Message_Type with record
       Speed : VehiculeSpeed_Type := 0;
    end record;
-end PIDs;
+end OBD.PIDs;

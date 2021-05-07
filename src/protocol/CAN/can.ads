@@ -40,8 +40,8 @@ package CAN is
    type CAN_Frame (Is_Extended : Boolean := True) is record
       Payload : Payload_Type;
       DLC : Data_Length_Code;
-      Is_RTR : Boolean;
-      Is_Error : Boolean;
+      Is_RTR : Boolean := False;
+      Is_Error : Boolean := False;
       case Is_Extended is
       when True =>
          Std_Arbitration_ID : Std_Arbitration_ID_Type;
