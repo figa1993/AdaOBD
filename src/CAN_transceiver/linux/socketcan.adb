@@ -147,7 +147,7 @@ package body SocketCAN is
 
    procedure Send (This : in out Device; Payload : Payload_Type;
                    Tx_Arbitration_Id : Ext_Arbitration_ID_Type ) is
-      Frame : aliased CAN.CAN_Frame;
+      Frame : aliased CAN.CAN_Frame(Is_Extended=>True);
       Bytes_Written : int;
    begin
       --   Encapsulate the payload into a CAN frame

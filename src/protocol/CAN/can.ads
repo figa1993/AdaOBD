@@ -43,9 +43,9 @@ package CAN is
       Is_RTR : Boolean := False;
       Is_Error : Boolean := False;
       case Is_Extended is
-      when True =>
-         Std_Arbitration_ID : Std_Arbitration_ID_Type;
       when False =>
+         Std_Arbitration_ID : Std_Arbitration_ID_Type;
+      when True =>
          Ext_Arbitration_ID : Ext_Arbitration_ID_Type;
       end case;
    end record;

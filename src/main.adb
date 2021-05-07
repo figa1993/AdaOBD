@@ -16,7 +16,7 @@ procedure Main is
    CommuncationEngine : CommuncationEngine_Type(Dev'Access);
    PID_0 : Supported_PIDs_Bitfield(1,0,4);
 begin
-   Put_Line ("AdaOBD version 0.0.4");
+   Put_Line ("AdaOBD version 0.0.5");
    --   Parse command line arguments
 
    --   Initialize the CAN_Transceiver with the device handle,
