@@ -25,13 +25,6 @@ package OBD is
       --   @TODO: there is a spare byte in each frame, need it be reflected?
    end record;
 
-
-  -- for Frame_Type use record
-    --  Length at range 11 .. 12
-   --end record;
-
-
-
    --   @TODO figure out the record representation clause once length field
    --   is clarified
 

@@ -20,15 +20,27 @@ package SocketCAN is
 
    procedure Initialize (This : in out Device);
    procedure Stop (This : Device);
-   function Receive (This : Device) return Can.CAN_Frame;
-   overriding procedure Send (This : in out Device; Payload : Payload_Type;
-                              Tx_Arbitration_Id : Ext_Arbitration_ID_Type );
+   overriding function Receive (This : in out Device) return Can.CAN_Frame;
+   overriding procedure Send (This : in out Device;
+                              Payload : Payload_Type;
+                              TX_Arbitration_Id : Ext_Arbitration_ID_Type;
+                              Is_Extended : Boolean);
 
    overriding procedure Subscribe( This : in out Device;
                                    Rx_Arbitration_Id : Ext_Arbitration_ID_Type;
                                    Payload_Handler : CAN_Payload_Handler_Type);
 
 private
+
+   --  type SocketCAN_Frame is record
+   --     Header : aliased SocketCAN_Header;
+   --     Payload : aliased Payload_Type;
+   --  end record;
+   --  for SocketCAN_Frame use record
+   --     Header at 0 range 0 .. SocketCAN_Header_Length - 1;
+   --     Payload at 0 range SocketCAN_Header_Length .. SocketCAN_Header_Length +
+   --       64 - 1;
+   --  end record;
 
    --   Instantiate Hashed Map container between Arbitration ID and type
    --   since the Arbitration ID is smaller than the Ada.Containers.Hash_Type
@@ -50,7 +62,6 @@ private
    with record
       Socket_FD : Sockets.C.Int;
       Subscriber_Map : Map;
-      -- Device_Name : Unbounded_String;
    end record;
 
 end SocketCAN;

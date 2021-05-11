@@ -22,6 +22,19 @@ package body SocketCAN is
 
    package Socket_Bits renames Arm_Linux_Gnueabihf_Bits_Socket_H;
 
+   --   Representation of a CAN frame used by the underlying SocketCAN device
+   --   driver
+   SocketCAN_Header_Length : constant Natural := 64;
+   type SocketCAN_Header is new CAN_Header with Size => SocketCAN_Header_Length;
+   for SocketCAN_Header use record
+      Std_Arbitration_ID at 0 range 0 .. 10;
+      Ext_Arbitration_ID at 0 range 0 .. 28;
+      Is_RTR at 0 range 29 .. 29;
+      Is_Error at 0 range 30 .. 30;
+      Is_Extended at 0 range 31 .. 31;
+      DLC at 0 range 32 .. 32 + Data_Length_Code'Size-1;
+   end record;
+
    -----------
    -- Start --
    -----------
@@ -101,38 +114,39 @@ package body SocketCAN is
    -------------
 
    --  @TODO: Determine if this should be a blocking call with a timeout
-   function Receive (This : Device) return CAN.CAN_Frame is
-      Frame : CAN.CAN_Frame;
+   --  @TODO: Add error handling
+   function Receive (This : in out Device) return Can.CAN_Frame is
+      Header : aliased SocketCAN_Header;
+      Bytes_Read : int := 0;
    begin
 
       --  Receive bytes from the socket using recv system call
-      if Recv (This.Socket_FD, Frame'Address, Frame'Size / Storage_Unit, 0) > 0 then
-         Put_Line (Frame'Image);
+      Bytes_Read := recv(This.Socket_FD,
+                         Header'Address,
+                         Header'Size / Storage_Unit,
+                         0);
+      if Bytes_Read /= (Header'Size / Storage_Unit) then
+         raise Program_Error with "Failed to read CAN Header";
       end if;
 
-      return Frame;
-      ------------------ NOTES -------------
-      -- Observation: The length of the frame is unknown apriori (it is
-      -- dependent on fields in the header)
+      declare
+         Frame : Can.CAN_Frame( Header.Is_Extended, Header.DLC );
+      begin
+         Frame.Header := CAN_Header(Header);
 
-      -- Assumption: Once the protocol is determined, the length of the frame
-      -- is known
+         Bytes_Read := Recv(This.Socket_FD,
+                            Frame.Payload'Address,
+                            Frame.Payload'Size / Storage_Unit,
+                            0);
+         if Bytes_Read /= (Frame.Payload'Size / Storage_Unit) then
+            raise Program_Error with "Failed to read CAN Payload";
+         end if;
+         return Frame;
+      end;
 
-      -- Observation: Error handling should be performed by hardware
-      -- In the general case there are multi-frame messages (but not for OBD-II)
-      -- how to handle dropped packets.
-      ------------------ /NOTES ------------
-
-
-      -- Read in the arbitartion field.
-      -- Read in the DLC
-      -- Read in the Data
-
-
-
-      -- use recvmsg() system call to receive message bytes
-      -- construct a CAN Frame from the received bytes
-      -- return the frame
+      --   Use change of representation to convert the device specific
+      --   header into the internal representation
+      -- Frame.Header := CAN_Header (Header);
 
    end Receive;
 
@@ -140,25 +154,35 @@ package body SocketCAN is
    -- Send --
    ----------
 
-   procedure Send (This : in out Device; Payload : Payload_Type;
-                   Tx_Arbitration_Id : Ext_Arbitration_ID_Type ) is
-      Frame : aliased CAN.CAN_Frame(Is_Extended=>True);
+   procedure Send (This : in out Device;
+                   Payload : Payload_Type;
+                   TX_Arbitration_Id : Ext_Arbitration_ID_Type;
+                   Is_Extended : Boolean) is
+      Header : SocketCAN_Header(Is_Extended, Payload'Length);
       Bytes_Written : int;
    begin
       --   @TODO How does this interact with filtering capabilities?
 
       --   Encapsulate the payload into a CAN frame
-      Frame.Ext_Arbitration_ID := Tx_Arbitration_Id;
-      Frame.DLC := Payload'Length;
-      Frame.Payload := Payload;
+      -- Header.DLC := Payload'Length;
 
       --   Perform system calls to send the Frame
       Bytes_Written := Send( This.Socket_FD,
-                             Frame'Address,
-                             Frame'Size/Storage_Unit,
+                             Header'Address,
+                             Header'Size/Storage_Unit,
                              0);
 
       Put_Line("Wrote " & Bytes_Written'Image & " bytes");
+
+      Bytes_Written := Send( This.Socket_FD,
+                             Payload'Address,
+                             Payload'Size/Storage_Unit,
+                             0);
+
+      Put_Line("Wrote " & Bytes_Written'Image & " bytes");
+
+      --   @TODO: Determine whether payload bytes need to be padded
+      --   @TODO: Determine whether the entire frame needs to be sent at once
 
    end Send;
 
@@ -166,7 +190,7 @@ package body SocketCAN is
                         Rx_Arbitration_Id : Ext_Arbitration_ID_Type;
                         Payload_Handler : CAN_Payload_Handler_Type) is
    begin
-      null;
+      This.Subscriber_Map.Include(Rx_Arbitration_Id, Payload_Handler);
    end Subscribe;
 
 end SocketCAN;

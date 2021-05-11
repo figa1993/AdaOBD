@@ -4,6 +4,7 @@
 
 package body OBD.CommuncationEngine is
 
+   subtype OBD_CAN_Payload is CAN.Payload_Type(1 .. 8);
 
    --procedure Show_Bit (V : Boolean) is
    --begin
@@ -59,10 +60,10 @@ package body OBD.CommuncationEngine is
                           Message : in Message_Type'Class) is
       Request : Frame_Type;
       function To_Bytes is new Ada.Unchecked_Conversion(Source => Frame_Type,
-                                                    Target => CAN.Payload_Type);
+                                                    Target => OBD_CAN_Payload);
    begin
       Request.PID := Message.Get_PID;
-      This.CAN_Transceiver.Send( To_Bytes(Request), 16#7DF# );
+      This.CAN_Transceiver.Send( To_Bytes(Request), 16#7DF#, True );
    end Request_PID;
 
 
