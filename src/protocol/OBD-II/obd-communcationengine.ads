@@ -7,6 +7,14 @@ package OBD.CommuncationEngine is
 
    --   @TODO: Add an enumeration of the ISO 1576-4 standardized CAN IDs
 
+   --   @TODO: Add a connect API, as ISO 1576-4 defines a procedure for
+   --   connecting to the CAN Bus in order to discover the Arbitration ID type
+   --   and the baud rate.
+
+   --   @NOTE: CAN ID's are effectively message identifiers, with the identifier
+   --   also being the message priority. ID's are not "addresses" on the CAN Bus
+   --   any CPU can decide to send/receive a message with any CAN ID.
+
    --   Type that provides the service of requesting OBD-II messages
    type CommuncationEngine_Type (CAN_Transceiver : access Transceiver_Type'Class)
    is tagged private;

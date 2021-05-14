@@ -17,13 +17,19 @@ package CANtransceiver is
                    Is_Extended : Boolean)
    is abstract;
 
+   --   @TODO: Determine if higher level protocols need all the infromation
+   --   in a CAN frame
    function Receive (This : in out Transceiver_Type) return Can.CAN_Frame
                      is abstract;
 
-   --   @TODO: Figure out how to deal with the various protocols that sit on
-   --   top of CAN. How can CAN frames be filtered to the appropriate protocol?
-   --   Can it be expected that all CAN Devices support filtering? Linux
-   --   SocketCAN does.
+   --   @TODO: Add the ability to filter based on CAN ID. This
+   --   filters which CAN messages will be received. The meaning of CAN ID's
+   --   is defined by the particular CAN bus architecture.
+
+   --   @TODO: Add API to configure the CAN protcol parameters:
+   --   arbitration type, data rate, etc.
+   --   @NOTE: Assumption is these parameters are constant and properties of
+   --   the CAN bus
 
    type CAN_Payload_Handler_Type is access procedure (Payload : CAN.Payload_Type);
 

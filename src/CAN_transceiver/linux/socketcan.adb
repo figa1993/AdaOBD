@@ -22,10 +22,24 @@ package body SocketCAN is
 
    package Socket_Bits renames Arm_Linux_Gnueabihf_Bits_Socket_H;
 
-   --   Representation of a CAN frame used by the underlying SocketCAN device
-   --   driver
+   --  Thick binding for the Linux kernel can_frame type
+   type SocketCAN_DLC_Type is new Data_Length_Code with Size =>32;
    SocketCAN_Header_Length : constant Natural := 64;
-   type SocketCAN_Header is new CAN_Header with Size => SocketCAN_Header_Length;
+
+   type SocketCAN_Header (Is_Extended : Boolean := True)
+   is record
+      Is_RTR : Boolean;
+      Is_Error : Boolean;
+      DLC : SocketCAN_DLC_Type;
+      case Is_Extended is
+      when False =>
+         Std_Arbitration_ID : Std_Arbitration_ID_Type;
+      when True =>
+         Ext_Arbitration_ID : Ext_Arbitration_ID_Type;
+      -- when others => null;
+      end case;
+   end record with Size => SocketCAN_Header_Length;
+
    for SocketCAN_Header use record
       Std_Arbitration_ID at 0 range 0 .. 10;
       Ext_Arbitration_ID at 0 range 0 .. 28;
@@ -33,6 +47,12 @@ package body SocketCAN is
       Is_Error at 0 range 30 .. 30;
       Is_Extended at 0 range 31 .. 31;
       DLC at 0 range 32 .. 32 + Data_Length_Code'Size-1;
+   end record;
+
+   type SocketCAN_Frame(DLC : Data_Length_Code)
+   is record
+      Header : SocketCAN_Header;
+      Payload : Payload_Type(1 ..  DLC);
    end record;
 
    -----------
@@ -130,9 +150,15 @@ package body SocketCAN is
       end if;
 
       declare
-         Frame : Can.CAN_Frame( Header.Is_Extended, Header.DLC );
+         Frame : Can.CAN_Frame( Header.Is_Extended, Data_Length_Code (Header.DLC) );
       begin
-         Frame.Header := CAN_Header(Header);
+         if Frame.Header.Is_Extended then
+            Frame.Header.Ext_Arbitration_ID := Header.Ext_Arbitration_ID;
+         else
+            Frame.Header.Std_Arbitration_ID := Header.Std_Arbitration_ID;
+         end if;
+         Frame.Header.Is_RTR := Header.Is_RTR;
+         Frame.Header.Is_Error := Header.Is_Error;
 
          Bytes_Read := Recv(This.Socket_FD,
                             Frame.Payload'Address,
@@ -158,25 +184,27 @@ package body SocketCAN is
                    Payload : Payload_Type;
                    TX_Arbitration_Id : Ext_Arbitration_ID_Type;
                    Is_Extended : Boolean) is
-      Header : SocketCAN_Header(Is_Extended, Payload'Length);
+      Header : SocketCAN_Header(Is_Extended);
+
+      Frame : SocketCAN_Frame(DLC => Payload'Length);
       Bytes_Written : int;
    begin
       --   @TODO How does this interact with filtering capabilities?
+      if  Header.Is_Extended then
+         Header.Ext_Arbitration_ID := TX_Arbitration_Id;
+      else
+         Header.Std_Arbitration_ID := Std_Arbitration_ID_Type (TX_Arbitration_Id);
+      end if;
+      Header.DLC := Payload'Length;
+      Frame.Header := Header;
 
       --   Encapsulate the payload into a CAN frame
       -- Header.DLC := Payload'Length;
 
       --   Perform system calls to send the Frame
       Bytes_Written := Send( This.Socket_FD,
-                             Header'Address,
-                             Header'Size/Storage_Unit,
-                             0);
-
-      Put_Line("Wrote " & Bytes_Written'Image & " bytes");
-
-      Bytes_Written := Send( This.Socket_FD,
-                             Payload'Address,
-                             Payload'Size/Storage_Unit,
+                             Frame'Address,
+                             Frame'Size/Storage_Unit,
                              0);
 
       Put_Line("Wrote " & Bytes_Written'Image & " bytes");
