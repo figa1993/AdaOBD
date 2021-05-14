@@ -3,13 +3,11 @@ pragma Style_Checks (Off);
 pragma Warnings ("U");
 
 with Interfaces.C; use Interfaces.C;
-with System;
-with stddef_h;
 
-package arm_linux_gnueabihf_bits_types_struct_iovec_h is
+package arm_linux_gnueabihf_bits_confname_h is
 
-  -- Define struct iovec.
-  --   Copyright (C) 1996-2018 Free Software Foundation, Inc.
+  -- `sysconf', `pathconf', and `confstr' NAME values.  Generic version.
+  --   Copyright (C) 1993-2018 Free Software Foundation, Inc.
   --   This file is part of the GNU C Library.
   --   The GNU C Library is free software; you can redistribute it and/or
   --   modify it under the terms of the GNU Lesser General Public
@@ -23,13 +21,13 @@ package arm_linux_gnueabihf_bits_types_struct_iovec_h is
   --   License along with the GNU C Library; if not, see
   --   <http://www.gnu.org/licenses/>.   
 
-  -- Structure for scatter/gather I/O.   
-  -- Pointer to data.   
-   type iovec is record
-      iov_base : System.Address;  -- /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/bits/types/struct_iovec.h:28
-      iov_len : aliased stddef_h.size_t;  -- /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/bits/types/struct_iovec.h:29
-   end record
-   with Convention => C_Pass_By_Copy;  -- /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/bits/types/struct_iovec.h:26
+  -- Values for the NAME argument to `pathconf' and `fpathconf'.   
+  -- Values for the argument to `sysconf'.   
+  -- Values for the argument to `sysconf'
+  --       corresponding to _POSIX2_* symbols.   
 
-  -- Length of data.   
-end arm_linux_gnueabihf_bits_types_struct_iovec_h;
+  -- Values according to POSIX 1003.1c (POSIX threads).   
+  -- Leave room here, maybe we need a few more cache levels some day.   
+  -- Values for the NAME argument to `confstr'.   
+  -- The default search path.   
+end arm_linux_gnueabihf_bits_confname_h;

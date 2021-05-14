@@ -24,14 +24,14 @@ package arm_linux_gnueabihf_asm_posix_types_h is
   -- * assume GCC is being used.
   --  
 
-   subtype uu_kernel_mode_t is unsigned_short;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/asm/posix_types.h:23
+   subtype uu_kernel_mode_t is unsigned_short;  -- /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/asm/posix_types.h:23
 
-   subtype uu_kernel_ipc_pid_t is unsigned_short;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/asm/posix_types.h:26
+   subtype uu_kernel_ipc_pid_t is unsigned_short;  -- /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/asm/posix_types.h:26
 
-   subtype uu_kernel_uid_t is unsigned_short;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/asm/posix_types.h:29
+   subtype uu_kernel_uid_t is unsigned_short;  -- /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/asm/posix_types.h:29
 
-   subtype uu_kernel_gid_t is unsigned_short;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/asm/posix_types.h:30
+   subtype uu_kernel_gid_t is unsigned_short;  -- /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/asm/posix_types.h:30
 
-   subtype uu_kernel_old_dev_t is unsigned_short;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/asm/posix_types.h:33
+   subtype uu_kernel_old_dev_t is unsigned_short;  -- /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/asm/posix_types.h:33
 
 end arm_linux_gnueabihf_asm_posix_types_h;

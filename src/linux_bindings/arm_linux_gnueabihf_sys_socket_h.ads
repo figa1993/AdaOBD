@@ -59,7 +59,7 @@ package arm_linux_gnueabihf_sys_socket_h is
    function socket
      (uu_domain : int;
       uu_type : int;
-      uu_protocol : int) return int  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/sys/socket.h:102
+      uu_protocol : int) return int  -- /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/sys/socket.h:102
    with Import => True, 
         Convention => C, 
         External_Name => "socket";
@@ -73,7 +73,7 @@ package arm_linux_gnueabihf_sys_socket_h is
      (uu_domain : int;
       uu_type : int;
       uu_protocol : int;
-      uu_fds : access int) return int  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/sys/socket.h:108
+      uu_fds : access int) return int  -- /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/sys/socket.h:108
    with Import => True, 
         Convention => C, 
         External_Name => "socketpair";
@@ -82,7 +82,7 @@ package arm_linux_gnueabihf_sys_socket_h is
    function bind
      (uu_fd : int;
       uu_addr : access constant arm_linux_gnueabihf_bits_socket_h.sockaddr;
-      uu_len : arm_linux_gnueabihf_bits_socket_h.socklen_t) return int  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/sys/socket.h:112
+      uu_len : arm_linux_gnueabihf_bits_socket_h.socklen_t) return int  -- /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/sys/socket.h:112
    with Import => True, 
         Convention => C, 
         External_Name => "bind";
@@ -91,7 +91,7 @@ package arm_linux_gnueabihf_sys_socket_h is
    function getsockname
      (uu_fd : int;
       uu_addr : access arm_linux_gnueabihf_bits_socket_h.sockaddr;
-      uu_len : access arm_linux_gnueabihf_bits_socket_h.socklen_t) return int  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/sys/socket.h:116
+      uu_len : access arm_linux_gnueabihf_bits_socket_h.socklen_t) return int  -- /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/sys/socket.h:116
    with Import => True, 
         Convention => C, 
         External_Name => "getsockname";
@@ -106,7 +106,7 @@ package arm_linux_gnueabihf_sys_socket_h is
    function connect
      (uu_fd : int;
       uu_addr : access constant arm_linux_gnueabihf_bits_socket_h.sockaddr;
-      uu_len : arm_linux_gnueabihf_bits_socket_h.socklen_t) return int  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/sys/socket.h:126
+      uu_len : arm_linux_gnueabihf_bits_socket_h.socklen_t) return int  -- /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/sys/socket.h:126
    with Import => True, 
         Convention => C, 
         External_Name => "connect";
@@ -117,7 +117,7 @@ package arm_linux_gnueabihf_sys_socket_h is
    function getpeername
      (uu_fd : int;
       uu_addr : access arm_linux_gnueabihf_bits_socket_h.sockaddr;
-      uu_len : access arm_linux_gnueabihf_bits_socket_h.socklen_t) return int  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/sys/socket.h:130
+      uu_len : access arm_linux_gnueabihf_bits_socket_h.socklen_t) return int  -- /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/sys/socket.h:130
    with Import => True, 
         Convention => C, 
         External_Name => "getpeername";
@@ -130,7 +130,7 @@ package arm_linux_gnueabihf_sys_socket_h is
      (uu_fd : int;
       uu_buf : System.Address;
       uu_n : stddef_h.size_t;
-      uu_flags : int) return arm_linux_gnueabihf_sys_types_h.ssize_t  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/sys/socket.h:138
+      uu_flags : int) return arm_linux_gnueabihf_sys_types_h.ssize_t  -- /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/sys/socket.h:138
    with Import => True, 
         Convention => C, 
         External_Name => "send";
@@ -144,7 +144,7 @@ package arm_linux_gnueabihf_sys_socket_h is
      (uu_fd : int;
       uu_buf : System.Address;
       uu_n : stddef_h.size_t;
-      uu_flags : int) return arm_linux_gnueabihf_sys_types_h.ssize_t  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/sys/socket.h:145
+      uu_flags : int) return arm_linux_gnueabihf_sys_types_h.ssize_t  -- /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/sys/socket.h:145
    with Import => True, 
         Convention => C, 
         External_Name => "recv";
@@ -160,7 +160,7 @@ package arm_linux_gnueabihf_sys_socket_h is
       uu_n : stddef_h.size_t;
       uu_flags : int;
       uu_addr : access constant arm_linux_gnueabihf_bits_socket_h.sockaddr;
-      uu_addr_len : arm_linux_gnueabihf_bits_socket_h.socklen_t) return arm_linux_gnueabihf_sys_types_h.ssize_t  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/sys/socket.h:152
+      uu_addr_len : arm_linux_gnueabihf_bits_socket_h.socklen_t) return arm_linux_gnueabihf_sys_types_h.ssize_t  -- /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/sys/socket.h:152
    with Import => True, 
         Convention => C, 
         External_Name => "sendto";
@@ -178,7 +178,7 @@ package arm_linux_gnueabihf_sys_socket_h is
       uu_n : stddef_h.size_t;
       uu_flags : int;
       uu_addr : access arm_linux_gnueabihf_bits_socket_h.sockaddr;
-      uu_addr_len : access arm_linux_gnueabihf_bits_socket_h.socklen_t) return arm_linux_gnueabihf_sys_types_h.ssize_t  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/sys/socket.h:163
+      uu_addr_len : access arm_linux_gnueabihf_bits_socket_h.socklen_t) return arm_linux_gnueabihf_sys_types_h.ssize_t  -- /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/sys/socket.h:163
    with Import => True, 
         Convention => C, 
         External_Name => "recvfrom";
@@ -191,7 +191,7 @@ package arm_linux_gnueabihf_sys_socket_h is
    function sendmsg
      (uu_fd : int;
       uu_message : access constant arm_linux_gnueabihf_bits_socket_h.msghdr;
-      uu_flags : int) return arm_linux_gnueabihf_sys_types_h.ssize_t  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/sys/socket.h:173
+      uu_flags : int) return arm_linux_gnueabihf_sys_types_h.ssize_t  -- /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/sys/socket.h:173
    with Import => True, 
         Convention => C, 
         External_Name => "sendmsg";
@@ -209,7 +209,7 @@ package arm_linux_gnueabihf_sys_socket_h is
    function recvmsg
      (uu_fd : int;
       uu_message : access arm_linux_gnueabihf_bits_socket_h.msghdr;
-      uu_flags : int) return arm_linux_gnueabihf_sys_types_h.ssize_t  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/sys/socket.h:191
+      uu_flags : int) return arm_linux_gnueabihf_sys_types_h.ssize_t  -- /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/sys/socket.h:191
    with Import => True, 
         Convention => C, 
         External_Name => "recvmsg";
@@ -228,7 +228,7 @@ package arm_linux_gnueabihf_sys_socket_h is
       uu_level : int;
       uu_optname : int;
       uu_optval : System.Address;
-      uu_optlen : access arm_linux_gnueabihf_bits_socket_h.socklen_t) return int  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/sys/socket.h:208
+      uu_optlen : access arm_linux_gnueabihf_bits_socket_h.socklen_t) return int  -- /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/sys/socket.h:208
    with Import => True, 
         Convention => C, 
         External_Name => "getsockopt";
@@ -242,7 +242,7 @@ package arm_linux_gnueabihf_sys_socket_h is
       uu_level : int;
       uu_optname : int;
       uu_optval : System.Address;
-      uu_optlen : arm_linux_gnueabihf_bits_socket_h.socklen_t) return int  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/sys/socket.h:215
+      uu_optlen : arm_linux_gnueabihf_bits_socket_h.socklen_t) return int  -- /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/sys/socket.h:215
    with Import => True, 
         Convention => C, 
         External_Name => "setsockopt";
@@ -251,7 +251,7 @@ package arm_linux_gnueabihf_sys_socket_h is
   --   N connection requests will be queued before further requests are refused.
   --   Returns 0 on success, -1 for errors.   
 
-   function listen (uu_fd : int; uu_n : int) return int  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/sys/socket.h:222
+   function listen (uu_fd : int; uu_n : int) return int  -- /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/sys/socket.h:222
    with Import => True, 
         Convention => C, 
         External_Name => "listen";
@@ -267,7 +267,7 @@ package arm_linux_gnueabihf_sys_socket_h is
    function c_accept
      (uu_fd : int;
       uu_addr : access arm_linux_gnueabihf_bits_socket_h.sockaddr;
-      uu_addr_len : access arm_linux_gnueabihf_bits_socket_h.socklen_t) return int  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/sys/socket.h:232
+      uu_addr_len : access arm_linux_gnueabihf_bits_socket_h.socklen_t) return int  -- /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/sys/socket.h:232
    with Import => True, 
         Convention => C, 
         External_Name => "accept";
@@ -283,13 +283,13 @@ package arm_linux_gnueabihf_sys_socket_h is
   --     SHUT_RDWR = No more receptions or transmissions.
   --   Returns 0 on success, -1 for errors.   
 
-   function shutdown (uu_fd : int; uu_how : int) return int  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/sys/socket.h:250
+   function shutdown (uu_fd : int; uu_how : int) return int  -- /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/sys/socket.h:250
    with Import => True, 
         Convention => C, 
         External_Name => "shutdown";
 
   -- Determine wheter socket is at a out-of-band mark.   
-   function sockatmark (uu_fd : int) return int  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/sys/socket.h:255
+   function sockatmark (uu_fd : int) return int  -- /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/sys/socket.h:255
    with Import => True, 
         Convention => C, 
         External_Name => "sockatmark";
@@ -298,7 +298,7 @@ package arm_linux_gnueabihf_sys_socket_h is
   --   returns 1 if FD is open on an object of the indicated type, 0 if not,
   --   or -1 for errors (setting errno).   
 
-   function isfdtype (uu_fd : int; uu_fdtype : int) return int  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/sys/socket.h:263
+   function isfdtype (uu_fd : int; uu_fdtype : int) return int  -- /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/sys/socket.h:263
    with Import => True, 
         Convention => C, 
         External_Name => "isfdtype";

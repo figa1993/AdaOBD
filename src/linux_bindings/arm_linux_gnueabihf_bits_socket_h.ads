@@ -11,56 +11,56 @@ with stddef_h;
 
 package arm_linux_gnueabihf_bits_socket_h is
 
-   PF_UNSPEC : constant := 0;  --  /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:41
-   PF_LOCAL : constant := 1;  --  /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:42
+   PF_UNSPEC : constant := 0;  --  /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:41
+   PF_LOCAL : constant := 1;  --  /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:42
    --  unsupported macro: PF_UNIX PF_LOCAL
    --  unsupported macro: PF_FILE PF_LOCAL
 
-   PF_INET : constant := 2;  --  /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:45
-   PF_AX25 : constant := 3;  --  /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:46
-   PF_IPX : constant := 4;  --  /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:47
-   PF_APPLETALK : constant := 5;  --  /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:48
-   PF_NETROM : constant := 6;  --  /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:49
-   PF_BRIDGE : constant := 7;  --  /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:50
-   PF_ATMPVC : constant := 8;  --  /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:51
-   PF_X25 : constant := 9;  --  /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:52
-   PF_INET6 : constant := 10;  --  /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:53
-   PF_ROSE : constant := 11;  --  /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:54
-   PF_DECnet : constant := 12;  --  /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:55
-   PF_NETBEUI : constant := 13;  --  /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:56
-   PF_SECURITY : constant := 14;  --  /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:57
-   PF_KEY : constant := 15;  --  /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:58
-   PF_NETLINK : constant := 16;  --  /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:59
+   PF_INET : constant := 2;  --  /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:45
+   PF_AX25 : constant := 3;  --  /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:46
+   PF_IPX : constant := 4;  --  /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:47
+   PF_APPLETALK : constant := 5;  --  /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:48
+   PF_NETROM : constant := 6;  --  /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:49
+   PF_BRIDGE : constant := 7;  --  /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:50
+   PF_ATMPVC : constant := 8;  --  /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:51
+   PF_X25 : constant := 9;  --  /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:52
+   PF_INET6 : constant := 10;  --  /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:53
+   PF_ROSE : constant := 11;  --  /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:54
+   PF_DECnet : constant := 12;  --  /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:55
+   PF_NETBEUI : constant := 13;  --  /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:56
+   PF_SECURITY : constant := 14;  --  /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:57
+   PF_KEY : constant := 15;  --  /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:58
+   PF_NETLINK : constant := 16;  --  /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:59
    --  unsupported macro: PF_ROUTE PF_NETLINK
 
-   PF_PACKET : constant := 17;  --  /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:61
-   PF_ASH : constant := 18;  --  /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:62
-   PF_ECONET : constant := 19;  --  /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:63
-   PF_ATMSVC : constant := 20;  --  /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:64
-   PF_RDS : constant := 21;  --  /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:65
-   PF_SNA : constant := 22;  --  /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:66
-   PF_IRDA : constant := 23;  --  /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:67
-   PF_PPPOX : constant := 24;  --  /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:68
-   PF_WANPIPE : constant := 25;  --  /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:69
-   PF_LLC : constant := 26;  --  /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:70
-   PF_IB : constant := 27;  --  /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:71
-   PF_MPLS : constant := 28;  --  /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:72
-   PF_CAN : constant := 29;  --  /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:73
-   PF_TIPC : constant := 30;  --  /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:74
-   PF_BLUETOOTH : constant := 31;  --  /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:75
-   PF_IUCV : constant := 32;  --  /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:76
-   PF_RXRPC : constant := 33;  --  /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:77
-   PF_ISDN : constant := 34;  --  /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:78
-   PF_PHONET : constant := 35;  --  /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:79
-   PF_IEEE802154 : constant := 36;  --  /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:80
-   PF_CAIF : constant := 37;  --  /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:81
-   PF_ALG : constant := 38;  --  /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:82
-   PF_NFC : constant := 39;  --  /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:83
-   PF_VSOCK : constant := 40;  --  /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:84
-   PF_KCM : constant := 41;  --  /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:85
-   PF_QIPCRTR : constant := 42;  --  /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:86
-   PF_SMC : constant := 43;  --  /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:87
-   PF_MAX : constant := 44;  --  /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:88
+   PF_PACKET : constant := 17;  --  /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:61
+   PF_ASH : constant := 18;  --  /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:62
+   PF_ECONET : constant := 19;  --  /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:63
+   PF_ATMSVC : constant := 20;  --  /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:64
+   PF_RDS : constant := 21;  --  /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:65
+   PF_SNA : constant := 22;  --  /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:66
+   PF_IRDA : constant := 23;  --  /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:67
+   PF_PPPOX : constant := 24;  --  /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:68
+   PF_WANPIPE : constant := 25;  --  /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:69
+   PF_LLC : constant := 26;  --  /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:70
+   PF_IB : constant := 27;  --  /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:71
+   PF_MPLS : constant := 28;  --  /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:72
+   PF_CAN : constant := 29;  --  /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:73
+   PF_TIPC : constant := 30;  --  /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:74
+   PF_BLUETOOTH : constant := 31;  --  /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:75
+   PF_IUCV : constant := 32;  --  /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:76
+   PF_RXRPC : constant := 33;  --  /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:77
+   PF_ISDN : constant := 34;  --  /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:78
+   PF_PHONET : constant := 35;  --  /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:79
+   PF_IEEE802154 : constant := 36;  --  /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:80
+   PF_CAIF : constant := 37;  --  /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:81
+   PF_ALG : constant := 38;  --  /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:82
+   PF_NFC : constant := 39;  --  /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:83
+   PF_VSOCK : constant := 40;  --  /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:84
+   PF_KCM : constant := 41;  --  /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:85
+   PF_QIPCRTR : constant := 42;  --  /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:86
+   PF_SMC : constant := 43;  --  /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:87
+   PF_MAX : constant := 44;  --  /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:88
    --  unsupported macro: AF_UNSPEC PF_UNSPEC
    --  unsupported macro: AF_LOCAL PF_LOCAL
    --  unsupported macro: AF_UNIX PF_UNIX
@@ -110,31 +110,31 @@ package arm_linux_gnueabihf_bits_socket_h is
    --  unsupported macro: AF_SMC PF_SMC
    --  unsupported macro: AF_MAX PF_MAX
 
-   SOL_RAW : constant := 255;  --  /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:144
-   SOL_DECNET : constant := 261;  --  /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:145
-   SOL_X25 : constant := 262;  --  /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:146
-   SOL_PACKET : constant := 263;  --  /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:147
-   SOL_ATM : constant := 264;  --  /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:148
-   SOL_AAL : constant := 265;  --  /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:149
-   SOL_IRDA : constant := 266;  --  /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:150
-   SOL_NETBEUI : constant := 267;  --  /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:151
-   SOL_LLC : constant := 268;  --  /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:152
-   SOL_DCCP : constant := 269;  --  /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:153
-   SOL_NETLINK : constant := 270;  --  /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:154
-   SOL_TIPC : constant := 271;  --  /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:155
-   SOL_RXRPC : constant := 272;  --  /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:156
-   SOL_PPPOL2TP : constant := 273;  --  /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:157
-   SOL_BLUETOOTH : constant := 274;  --  /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:158
-   SOL_PNPIPE : constant := 275;  --  /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:159
-   SOL_RDS : constant := 276;  --  /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:160
-   SOL_IUCV : constant := 277;  --  /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:161
-   SOL_CAIF : constant := 278;  --  /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:162
-   SOL_ALG : constant := 279;  --  /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:163
-   SOL_NFC : constant := 280;  --  /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:164
-   SOL_KCM : constant := 281;  --  /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:165
-   SOL_TLS : constant := 282;  --  /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:166
+   SOL_RAW : constant := 255;  --  /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:144
+   SOL_DECNET : constant := 261;  --  /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:145
+   SOL_X25 : constant := 262;  --  /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:146
+   SOL_PACKET : constant := 263;  --  /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:147
+   SOL_ATM : constant := 264;  --  /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:148
+   SOL_AAL : constant := 265;  --  /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:149
+   SOL_IRDA : constant := 266;  --  /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:150
+   SOL_NETBEUI : constant := 267;  --  /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:151
+   SOL_LLC : constant := 268;  --  /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:152
+   SOL_DCCP : constant := 269;  --  /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:153
+   SOL_NETLINK : constant := 270;  --  /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:154
+   SOL_TIPC : constant := 271;  --  /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:155
+   SOL_RXRPC : constant := 272;  --  /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:156
+   SOL_PPPOL2TP : constant := 273;  --  /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:157
+   SOL_BLUETOOTH : constant := 274;  --  /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:158
+   SOL_PNPIPE : constant := 275;  --  /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:159
+   SOL_RDS : constant := 276;  --  /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:160
+   SOL_IUCV : constant := 277;  --  /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:161
+   SOL_CAIF : constant := 278;  --  /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:162
+   SOL_ALG : constant := 279;  --  /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:163
+   SOL_NFC : constant := 280;  --  /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:164
+   SOL_KCM : constant := 281;  --  /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:165
+   SOL_TLS : constant := 282;  --  /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:166
 
-   SOMAXCONN : constant := 128;  --  /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:169
+   SOMAXCONN : constant := 128;  --  /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:169
    --  unsupported macro: MSG_OOB MSG_OOB
    --  unsupported macro: MSG_PEEK MSG_PEEK
    --  unsupported macro: MSG_DONTROUTE MSG_DONTROUTE
@@ -186,7 +186,7 @@ package arm_linux_gnueabihf_bits_socket_h is
   --   <http://www.gnu.org/licenses/>.   
 
   -- Type for length arguments in socket calls.   
-   subtype socklen_t is arm_linux_gnueabihf_bits_types_h.uu_socklen_t;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:33
+   subtype socklen_t is arm_linux_gnueabihf_bits_types_h.uu_socklen_t;  -- /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:33
 
   -- Get the architecture-dependent definition of enum __socket_type.   
   -- Protocol families.   
@@ -201,10 +201,10 @@ package arm_linux_gnueabihf_bits_socket_h is
   -- Common data: address family and length.   
    subtype anon1280_array1282 is Interfaces.C.char_array (0 .. 13);
    type sockaddr is record
-      sa_family : aliased arm_linux_gnueabihf_bits_sockaddr_h.sa_family_t;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:177
-      sa_data : aliased anon1280_array1282;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:178
+      sa_family : aliased arm_linux_gnueabihf_bits_sockaddr_h.sa_family_t;  -- /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:177
+      sa_data : aliased anon1280_array1282;  -- /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:178
    end record
-   with Convention => C_Pass_By_Copy;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:175
+   with Convention => C_Pass_By_Copy;  -- /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:175
 
   -- Address data.   
   -- Structure large enough to hold any socket address (with the historical
@@ -213,11 +213,11 @@ package arm_linux_gnueabihf_bits_socket_h is
   -- Address family, etc.   
    subtype anon1283_array1285 is Interfaces.C.char_array (0 .. 121);
    type sockaddr_storage is record
-      ss_family : aliased arm_linux_gnueabihf_bits_sockaddr_h.sa_family_t;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:190
-      uu_ss_padding : aliased anon1283_array1285;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:191
-      uu_ss_align : aliased unsigned_long;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:192
+      ss_family : aliased arm_linux_gnueabihf_bits_sockaddr_h.sa_family_t;  -- /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:190
+      uu_ss_padding : aliased anon1283_array1285;  -- /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:191
+      uu_ss_align : aliased unsigned_long;  -- /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:192
    end record
-   with Convention => C_Pass_By_Copy;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:188
+   with Convention => C_Pass_By_Copy;  -- /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:188
 
   -- Force desired alignment.   
   -- Bits in the FLAGS argument to `send', `recv', et al.   
@@ -247,15 +247,15 @@ package arm_linux_gnueabihf_bits_socket_h is
 
   -- Address to send to/receive from.   
    type msghdr is record
-      msg_name : System.Address;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:256
-      msg_namelen : aliased socklen_t;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:257
-      msg_iov : access arm_linux_gnueabihf_bits_types_struct_iovec_h.iovec;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:259
-      msg_iovlen : aliased stddef_h.size_t;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:260
-      msg_control : System.Address;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:262
-      msg_controllen : aliased stddef_h.size_t;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:263
-      msg_flags : aliased int;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:268
+      msg_name : System.Address;  -- /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:256
+      msg_namelen : aliased socklen_t;  -- /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:257
+      msg_iov : access arm_linux_gnueabihf_bits_types_struct_iovec_h.iovec;  -- /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:259
+      msg_iovlen : aliased stddef_h.size_t;  -- /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:260
+      msg_control : System.Address;  -- /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:262
+      msg_controllen : aliased stddef_h.size_t;  -- /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:263
+      msg_flags : aliased int;  -- /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:268
    end record
-   with Convention => C_Pass_By_Copy;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:254
+   with Convention => C_Pass_By_Copy;  -- /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:254
 
   -- Length of address data.   
   -- Vector of data to send/receive into.   
@@ -276,12 +276,12 @@ package arm_linux_gnueabihf_bits_socket_h is
 
    type anon1289_array1291 is array (0 .. 0) of aliased unsigned_char;
    type cmsghdr is record
-      cmsg_len : aliased stddef_h.size_t;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:274
-      cmsg_level : aliased int;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:279
-      cmsg_type : aliased int;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:280
-      uu_cmsg_data : aliased anon1289_array1291;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:282
+      cmsg_len : aliased stddef_h.size_t;  -- /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:274
+      cmsg_level : aliased int;  -- /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:279
+      cmsg_type : aliased int;  -- /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:280
+      uu_cmsg_data : aliased anon1289_array1291;  -- /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:282
    end record
-   with Convention => C_Pass_By_Copy;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:272
+   with Convention => C_Pass_By_Copy;  -- /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:272
 
   -- Originating protocol.   
   -- Protocol specific type.   
@@ -305,10 +305,10 @@ package arm_linux_gnueabihf_bits_socket_h is
   -- Structure used to manipulate the SO_LINGER option.   
   -- Nonzero to linger on close.   
    type linger is record
-      l_onoff : aliased int;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:446
-      l_linger : aliased int;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:447
+      l_onoff : aliased int;  -- /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:446
+      l_linger : aliased int;  -- /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:447
    end record
-   with Convention => C_Pass_By_Copy;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:444
+   with Convention => C_Pass_By_Copy;  -- /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/bits/socket.h:444
 
   -- Time to linger.   
 end arm_linux_gnueabihf_bits_socket_h;

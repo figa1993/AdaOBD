@@ -8,40 +8,40 @@ with linux_socket_h;
 
 package linux_can_h is
 
-   CAN_EFF_FLAG : constant := 16#80000000#;  --  /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/linux/can.h:55
-   CAN_RTR_FLAG : constant := 16#40000000#;  --  /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/linux/can.h:56
-   CAN_ERR_FLAG : constant := 16#20000000#;  --  /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/linux/can.h:57
+   CAN_EFF_FLAG : constant := 16#80000000#;  --  /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/linux/can.h:55
+   CAN_RTR_FLAG : constant := 16#40000000#;  --  /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/linux/can.h:56
+   CAN_ERR_FLAG : constant := 16#20000000#;  --  /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/linux/can.h:57
 
-   CAN_SFF_MASK : constant := 16#000007FF#;  --  /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/linux/can.h:60
-   CAN_EFF_MASK : constant := 16#1FFFFFFF#;  --  /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/linux/can.h:61
-   CAN_ERR_MASK : constant := 16#1FFFFFFF#;  --  /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/linux/can.h:62
+   CAN_SFF_MASK : constant := 16#000007FF#;  --  /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/linux/can.h:60
+   CAN_EFF_MASK : constant := 16#1FFFFFFF#;  --  /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/linux/can.h:61
+   CAN_ERR_MASK : constant := 16#1FFFFFFF#;  --  /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/linux/can.h:62
 
-   CAN_SFF_ID_BITS : constant := 11;  --  /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/linux/can.h:74
-   CAN_EFF_ID_BITS : constant := 29;  --  /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/linux/can.h:75
+   CAN_SFF_ID_BITS : constant := 11;  --  /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/linux/can.h:74
+   CAN_EFF_ID_BITS : constant := 29;  --  /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/linux/can.h:75
 
-   CAN_MAX_DLC : constant := 8;  --  /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/linux/can.h:86
-   CAN_MAX_DLEN : constant := 8;  --  /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/linux/can.h:87
+   CAN_MAX_DLC : constant := 8;  --  /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/linux/can.h:86
+   CAN_MAX_DLEN : constant := 8;  --  /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/linux/can.h:87
 
-   CANFD_MAX_DLC : constant := 15;  --  /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/linux/can.h:90
-   CANFD_MAX_DLEN : constant := 64;  --  /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/linux/can.h:91
+   CANFD_MAX_DLC : constant := 15;  --  /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/linux/can.h:90
+   CANFD_MAX_DLEN : constant := 64;  --  /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/linux/can.h:91
 
-   CANFD_BRS : constant := 16#01#;  --  /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/linux/can.h:129
-   CANFD_ESI : constant := 16#02#;  --  /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/linux/can.h:130
+   CANFD_BRS : constant := 16#01#;  --  /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/linux/can.h:129
+   CANFD_ESI : constant := 16#02#;  --  /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/linux/can.h:130
    --  unsupported macro: CAN_MTU (sizeof(struct can_frame))
    --  unsupported macro: CANFD_MTU (sizeof(struct canfd_frame))
 
-   CAN_RAW : constant := 1;  --  /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/linux/can.h:154
-   CAN_BCM : constant := 2;  --  /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/linux/can.h:155
-   CAN_TP16 : constant := 3;  --  /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/linux/can.h:156
-   CAN_TP20 : constant := 4;  --  /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/linux/can.h:157
-   CAN_MCNET : constant := 5;  --  /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/linux/can.h:158
-   CAN_ISOTP : constant := 6;  --  /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/linux/can.h:159
-   CAN_NPROTO : constant := 7;  --  /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/linux/can.h:160
+   CAN_RAW : constant := 1;  --  /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/linux/can.h:154
+   CAN_BCM : constant := 2;  --  /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/linux/can.h:155
+   CAN_TP16 : constant := 3;  --  /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/linux/can.h:156
+   CAN_TP20 : constant := 4;  --  /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/linux/can.h:157
+   CAN_MCNET : constant := 5;  --  /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/linux/can.h:158
+   CAN_ISOTP : constant := 6;  --  /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/linux/can.h:159
+   CAN_NPROTO : constant := 7;  --  /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/linux/can.h:160
 
-   SOL_CAN_BASE : constant := 100;  --  /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/linux/can.h:162
+   SOL_CAN_BASE : constant := 100;  --  /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/linux/can.h:162
 
-   CAN_INV_FILTER : constant := 16#20000000#;  --  /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/linux/can.h:199
-   CAN_RAW_FILTER_MAX : constant := 512;  --  /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/linux/can.h:200
+   CAN_INV_FILTER : constant := 16#20000000#;  --  /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/linux/can.h:199
+   CAN_RAW_FILTER_MAX : constant := 512;  --  /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/linux/can.h:200
 
   -- SPDX-License-Identifier: ((GPL-2.0 WITH Linux-syscall-note) OR BSD-3-Clause)  
   -- * linux/can.h
@@ -98,7 +98,7 @@ package linux_can_h is
   -- * bit 31	: frame format flag (0 = standard 11 bit, 1 = extended 29 bit)
   --  
 
-   subtype canid_t is asm_generic_int_ll64_h.uu_u32;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/linux/can.h:72
+   subtype canid_t is asm_generic_int_ll64_h.uu_u32;  -- /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/linux/can.h:72
 
   -- * Controller Area Network Error Message Frame Mask structure
   -- *
@@ -106,7 +106,7 @@ package linux_can_h is
   -- * bit 29-31	: set to zero
   --  
 
-   subtype can_err_mask_t is asm_generic_int_ll64_h.uu_u32;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/linux/can.h:83
+   subtype can_err_mask_t is asm_generic_int_ll64_h.uu_u32;  -- /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/linux/can.h:83
 
   -- CAN payload length and DLC definitions according to ISO 11898-1  
   -- CAN FD payload length and DLC definitions according to ISO 11898-7  
@@ -125,14 +125,14 @@ package linux_can_h is
   -- 32 bit CAN_ID + EFF/RTR/ERR flags  
    type anon1144_array1146 is array (0 .. 7) of aliased asm_generic_int_ll64_h.uu_u8;
    type can_frame is record
-      can_id : aliased canid_t;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/linux/can.h:105
-      can_dlc : aliased asm_generic_int_ll64_h.uu_u8;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/linux/can.h:106
-      uu_pad : aliased asm_generic_int_ll64_h.uu_u8;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/linux/can.h:107
-      uu_res0 : aliased asm_generic_int_ll64_h.uu_u8;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/linux/can.h:108
-      uu_res1 : aliased asm_generic_int_ll64_h.uu_u8;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/linux/can.h:109
-      data : aliased anon1144_array1146;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/linux/can.h:110
+      can_id : aliased canid_t;  -- /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/linux/can.h:105
+      can_dlc : aliased asm_generic_int_ll64_h.uu_u8;  -- /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/linux/can.h:106
+      uu_pad : aliased asm_generic_int_ll64_h.uu_u8;  -- /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/linux/can.h:107
+      uu_res0 : aliased asm_generic_int_ll64_h.uu_u8;  -- /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/linux/can.h:108
+      uu_res1 : aliased asm_generic_int_ll64_h.uu_u8;  -- /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/linux/can.h:109
+      data : aliased anon1144_array1146;  -- /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/linux/can.h:110
    end record
-   with Convention => C_Pass_By_Copy;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/linux/can.h:104
+   with Convention => C_Pass_By_Copy;  -- /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/linux/can.h:104
 
   -- frame payload length in byte (0 .. CAN_MAX_DLEN)  
   -- padding  
@@ -167,14 +167,14 @@ package linux_can_h is
   -- 32 bit CAN_ID + EFF/RTR/ERR flags  
    type anon1148_array1150 is array (0 .. 63) of aliased asm_generic_int_ll64_h.uu_u8;
    type canfd_frame is record
-      can_id : aliased canid_t;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/linux/can.h:142
-      len : aliased asm_generic_int_ll64_h.uu_u8;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/linux/can.h:143
-      flags : aliased asm_generic_int_ll64_h.uu_u8;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/linux/can.h:144
-      uu_res0 : aliased asm_generic_int_ll64_h.uu_u8;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/linux/can.h:145
-      uu_res1 : aliased asm_generic_int_ll64_h.uu_u8;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/linux/can.h:146
-      data : aliased anon1148_array1150;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/linux/can.h:147
+      can_id : aliased canid_t;  -- /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/linux/can.h:142
+      len : aliased asm_generic_int_ll64_h.uu_u8;  -- /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/linux/can.h:143
+      flags : aliased asm_generic_int_ll64_h.uu_u8;  -- /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/linux/can.h:144
+      uu_res0 : aliased asm_generic_int_ll64_h.uu_u8;  -- /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/linux/can.h:145
+      uu_res1 : aliased asm_generic_int_ll64_h.uu_u8;  -- /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/linux/can.h:146
+      data : aliased anon1148_array1150;  -- /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/linux/can.h:147
    end record
-   with Convention => C_Pass_By_Copy;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/linux/can.h:141
+   with Convention => C_Pass_By_Copy;  -- /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/linux/can.h:141
 
   -- frame payload length in byte  
   -- additional flags for CAN FD  
@@ -190,24 +190,24 @@ package linux_can_h is
 
   -- transport protocol class address information (e.g. ISOTP)  
    type anon1152_struct1154 is record
-      rx_id : aliased canid_t;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/linux/can.h:175
-      tx_id : aliased canid_t;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/linux/can.h:175
+      rx_id : aliased canid_t;  -- /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/linux/can.h:175
+      tx_id : aliased canid_t;  -- /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/linux/can.h:175
    end record
    with Convention => C_Pass_By_Copy;
    type anon1152_union1153 (discr : unsigned := 0) is record
       case discr is
          when others =>
-            tp : aliased anon1152_struct1154;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/linux/can.h:175
+            tp : aliased anon1152_struct1154;  -- /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/linux/can.h:175
       end case;
    end record
    with Convention => C_Pass_By_Copy,
         Unchecked_Union => True;
    type sockaddr_can is record
-      can_family : aliased linux_socket_h.uu_kernel_sa_family_t;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/linux/can.h:171
-      can_ifindex : aliased int;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/linux/can.h:172
-      can_addr : aliased anon1152_union1153;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/linux/can.h:178
+      can_family : aliased linux_socket_h.uu_kernel_sa_family_t;  -- /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/linux/can.h:171
+      can_ifindex : aliased int;  -- /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/linux/can.h:172
+      can_addr : aliased anon1152_union1153;  -- /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/linux/can.h:178
    end record
-   with Convention => C_Pass_By_Copy;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/linux/can.h:170
+   with Convention => C_Pass_By_Copy;  -- /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/linux/can.h:170
 
   -- reserved for future CAN protocols address information  
   --*
@@ -225,9 +225,9 @@ package linux_can_h is
   --  
 
    type can_filter is record
-      can_id : aliased canid_t;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/linux/can.h:195
-      can_mask : aliased canid_t;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/linux/can.h:196
+      can_id : aliased canid_t;  -- /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/linux/can.h:195
+      can_mask : aliased canid_t;  -- /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/linux/can.h:196
    end record
-   with Convention => C_Pass_By_Copy;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/linux/can.h:194
+   with Convention => C_Pass_By_Copy;  -- /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/linux/can.h:194
 
 end linux_can_h;

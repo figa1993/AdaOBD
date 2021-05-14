@@ -40,10 +40,10 @@ package arm_linux_gnueabihf_sys_select_h is
   -- Get __FD_* definitions.   
   -- Get sigset_t.   
   -- Get definition of timer specification structures.   
-   subtype suseconds_t is arm_linux_gnueabihf_bits_types_h.uu_suseconds_t;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/sys/select.h:43
+   subtype suseconds_t is arm_linux_gnueabihf_bits_types_h.uu_suseconds_t;  -- /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/sys/select.h:43
 
   -- The fd_set member is required to be an array of longs.   
-   subtype uu_fd_mask is long;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/sys/select.h:49
+   subtype uu_fd_mask is long;  -- /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/sys/select.h:49
 
   -- Some versions of <linux/posix_types.h> define this macros.   
   -- It's easier to assume 8-bit bytes than to get CHAR_BIT.   
@@ -53,13 +53,13 @@ package arm_linux_gnueabihf_sys_select_h is
 
    type fd_set_array1201 is array (0 .. 31) of aliased uu_fd_mask;
    type fd_set is record
-      uu_fds_bits : aliased fd_set_array1201;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/sys/select.h:67
+      uu_fds_bits : aliased fd_set_array1201;  -- /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/sys/select.h:67
    end record
-   with Convention => C_Pass_By_Copy;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/sys/select.h:70
+   with Convention => C_Pass_By_Copy;  -- /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/sys/select.h:70
 
   -- Maximum number of file descriptors in `fd_set'.   
   -- Sometimes the fd_set member is assumed to have this type.   
-   subtype fd_mask is uu_fd_mask;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/sys/select.h:77
+   subtype fd_mask is uu_fd_mask;  -- /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/sys/select.h:77
 
   -- Number of bits per word of `fd_set' (some code assumes this is 32).   
   -- Access macros for `fd_set'.   
@@ -76,7 +76,7 @@ package arm_linux_gnueabihf_sys_select_h is
       uu_readfds : access fd_set;
       uu_writefds : access fd_set;
       uu_exceptfds : access fd_set;
-      uu_timeout : access arm_linux_gnueabihf_bits_types_struct_timeval_h.timeval) return int  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/sys/select.h:101
+      uu_timeout : access arm_linux_gnueabihf_bits_types_struct_timeval_h.timeval) return int  -- /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/sys/select.h:101
    with Import => True, 
         Convention => C, 
         External_Name => "select";
@@ -93,7 +93,7 @@ package arm_linux_gnueabihf_sys_select_h is
       uu_writefds : access fd_set;
       uu_exceptfds : access fd_set;
       uu_timeout : access constant arm_linux_gnueabihf_bits_types_struct_timespec_h.timespec;
-      uu_sigmask : access constant arm_linux_gnueabihf_bits_types_u_sigset_t_h.uu_sigset_t) return int  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/sys/select.h:113
+      uu_sigmask : access constant arm_linux_gnueabihf_bits_types_u_sigset_t_h.uu_sigset_t) return int  -- /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/sys/select.h:113
    with Import => True, 
         Convention => C, 
         External_Name => "pselect";

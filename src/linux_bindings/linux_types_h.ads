@@ -12,21 +12,21 @@ package linux_types_h is
   -- * any application/library that wants linux/types.h.
   --  
 
-   subtype uu_le16 is asm_generic_int_ll64_h.uu_u16;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/linux/types.h:24
+   subtype uu_le16 is asm_generic_int_ll64_h.uu_u16;  -- /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/linux/types.h:24
 
-   subtype uu_be16 is asm_generic_int_ll64_h.uu_u16;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/linux/types.h:25
+   subtype uu_be16 is asm_generic_int_ll64_h.uu_u16;  -- /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/linux/types.h:25
 
-   subtype uu_le32 is asm_generic_int_ll64_h.uu_u32;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/linux/types.h:26
+   subtype uu_le32 is asm_generic_int_ll64_h.uu_u32;  -- /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/linux/types.h:26
 
-   subtype uu_be32 is asm_generic_int_ll64_h.uu_u32;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/linux/types.h:27
+   subtype uu_be32 is asm_generic_int_ll64_h.uu_u32;  -- /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/linux/types.h:27
 
-   subtype uu_le64 is asm_generic_int_ll64_h.uu_u64;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/linux/types.h:28
+   subtype uu_le64 is asm_generic_int_ll64_h.uu_u64;  -- /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/linux/types.h:28
 
-   subtype uu_be64 is asm_generic_int_ll64_h.uu_u64;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/linux/types.h:29
+   subtype uu_be64 is asm_generic_int_ll64_h.uu_u64;  -- /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/linux/types.h:29
 
-   subtype uu_sum16 is asm_generic_int_ll64_h.uu_u16;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/linux/types.h:31
+   subtype uu_sum16 is asm_generic_int_ll64_h.uu_u16;  -- /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/linux/types.h:31
 
-   subtype uu_wsum is asm_generic_int_ll64_h.uu_u32;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/linux/types.h:32
+   subtype uu_wsum is asm_generic_int_ll64_h.uu_u32;  -- /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/linux/types.h:32
 
   -- * aligned_u64 should be used in defining kernel<->userspace ABIs to avoid
   -- * common 32/64-bit compat problems.
@@ -37,6 +37,6 @@ package linux_types_h is
   -- * No conversions are necessary between 32-bit user-space and a 64-bit kernel.
   --  
 
-   subtype uu_poll_t is unsigned;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/linux/types.h:47
+   subtype uu_poll_t is unsigned;  -- /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/linux/types.h:47
 
 end linux_types_h;

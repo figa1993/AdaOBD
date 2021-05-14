@@ -23,17 +23,17 @@ package linux_posix_types_h is
 
    type uu_kernel_fd_set_array1089 is array (0 .. 31) of aliased unsigned_long;
    type uu_kernel_fd_set is record
-      fds_bits : aliased uu_kernel_fd_set_array1089;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/linux/posix_types.h:26
+      fds_bits : aliased uu_kernel_fd_set_array1089;  -- /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/linux/posix_types.h:26
    end record
-   with Convention => C_Pass_By_Copy;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/linux/posix_types.h:27
+   with Convention => C_Pass_By_Copy;  -- /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/linux/posix_types.h:27
 
   -- Type of a signal handler.   
    type uu_kernel_sighandler_t is access procedure (arg1 : int)
-   with Convention => C;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/linux/posix_types.h:30
+   with Convention => C;  -- /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/linux/posix_types.h:30
 
   -- Type of a SYSV IPC key.   
-   subtype uu_kernel_key_t is int;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/linux/posix_types.h:33
+   subtype uu_kernel_key_t is int;  -- /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/linux/posix_types.h:33
 
-   subtype uu_kernel_mqd_t is int;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/linux/posix_types.h:34
+   subtype uu_kernel_mqd_t is int;  -- /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/linux/posix_types.h:34
 
 end linux_posix_types_h;

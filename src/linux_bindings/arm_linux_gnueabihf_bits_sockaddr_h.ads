@@ -25,7 +25,7 @@ package arm_linux_gnueabihf_bits_sockaddr_h is
   --  
 
   -- POSIX.1g specifies this type name for the `sa_family' member.   
-   subtype sa_family_t is unsigned_short;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/sockaddr.h:28
+   subtype sa_family_t is unsigned_short;  -- /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/bits/sockaddr.h:28
 
   -- This macro is used to declare the initial common members
   --   of the data types used for socket addresses, `struct sockaddr',

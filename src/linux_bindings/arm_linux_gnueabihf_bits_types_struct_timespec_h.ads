@@ -13,10 +13,10 @@ package arm_linux_gnueabihf_bits_types_struct_timespec_h is
 
   -- Seconds.   
    type timespec is record
-      tv_sec : aliased arm_linux_gnueabihf_bits_types_h.uu_time_t;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/types/struct_timespec.h:11
-      tv_nsec : aliased arm_linux_gnueabihf_bits_types_h.uu_syscall_slong_t;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/types/struct_timespec.h:12
+      tv_sec : aliased arm_linux_gnueabihf_bits_types_h.uu_time_t;  -- /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/bits/types/struct_timespec.h:11
+      tv_nsec : aliased arm_linux_gnueabihf_bits_types_h.uu_syscall_slong_t;  -- /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/bits/types/struct_timespec.h:12
    end record
-   with Convention => C_Pass_By_Copy;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/types/struct_timespec.h:9
+   with Convention => C_Pass_By_Copy;  -- /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/bits/types/struct_timespec.h:9
 
   -- Nanoseconds.   
 end arm_linux_gnueabihf_bits_types_struct_timespec_h;

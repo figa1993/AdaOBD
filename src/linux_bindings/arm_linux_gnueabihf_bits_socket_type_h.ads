@@ -40,7 +40,7 @@ package arm_linux_gnueabihf_bits_socket_type_h is
    SOCK_DCCP : constant unsigned := 6;
    SOCK_PACKET : constant unsigned := 10;
    SOCK_CLOEXEC : constant unsigned := 524288;
-   SOCK_NONBLOCK : constant unsigned := 2048;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/socket_type.h:24
+   SOCK_NONBLOCK : constant unsigned := 2048;  -- /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/bits/socket_type.h:24
 
   -- Sequenced, reliable, connection-based
   --				   byte streams.   

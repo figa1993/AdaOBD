@@ -6,6 +6,7 @@ with Interfaces.C; use Interfaces.C;
 
 package stddef_h is
 
+   --  unsupported macro: NULL ((void *)0)
   -- Copyright (C) 1989-2019 Free Software Foundation, Inc.
   --This file is part of GCC.
   --GCC is free software; you can redistribute it and/or modify

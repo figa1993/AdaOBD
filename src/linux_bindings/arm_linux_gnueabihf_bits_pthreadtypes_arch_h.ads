@@ -22,19 +22,19 @@ package arm_linux_gnueabihf_bits_pthreadtypes_arch_h is
 
   -- Data structure for mutex handling.  
    type uu_pthread_rwlock_arch_t is record
-      uu_readers : aliased unsigned;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/pthreadtypes-arch.h:45
-      uu_writers : aliased unsigned;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/pthreadtypes-arch.h:46
-      uu_wrphase_futex : aliased unsigned;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/pthreadtypes-arch.h:47
-      uu_writers_futex : aliased unsigned;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/pthreadtypes-arch.h:48
-      uu_pad3 : aliased unsigned;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/pthreadtypes-arch.h:49
-      uu_pad4 : aliased unsigned;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/pthreadtypes-arch.h:50
-      uu_flags : aliased unsigned_char;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/pthreadtypes-arch.h:61
-      uu_shared : aliased unsigned_char;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/pthreadtypes-arch.h:62
-      uu_pad1 : aliased unsigned_char;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/pthreadtypes-arch.h:63
-      uu_pad2 : aliased unsigned_char;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/pthreadtypes-arch.h:64
-      uu_cur_writer : aliased int;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/pthreadtypes-arch.h:66
+      uu_readers : aliased unsigned;  -- /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/bits/pthreadtypes-arch.h:45
+      uu_writers : aliased unsigned;  -- /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/bits/pthreadtypes-arch.h:46
+      uu_wrphase_futex : aliased unsigned;  -- /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/bits/pthreadtypes-arch.h:47
+      uu_writers_futex : aliased unsigned;  -- /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/bits/pthreadtypes-arch.h:48
+      uu_pad3 : aliased unsigned;  -- /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/bits/pthreadtypes-arch.h:49
+      uu_pad4 : aliased unsigned;  -- /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/bits/pthreadtypes-arch.h:50
+      uu_flags : aliased unsigned_char;  -- /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/bits/pthreadtypes-arch.h:61
+      uu_shared : aliased unsigned_char;  -- /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/bits/pthreadtypes-arch.h:62
+      uu_pad1 : aliased unsigned_char;  -- /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/bits/pthreadtypes-arch.h:63
+      uu_pad2 : aliased unsigned_char;  -- /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/bits/pthreadtypes-arch.h:64
+      uu_cur_writer : aliased int;  -- /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/bits/pthreadtypes-arch.h:66
    end record
-   with Convention => C_Pass_By_Copy;  -- /home/gajowniczek/Documents/repositories/OBD-II-CAN-telemetry/sysroot/usr/include/arm-linux-gnueabihf/bits/pthreadtypes-arch.h:43
+   with Convention => C_Pass_By_Copy;  -- /home/gajowniczek/Documents/repositories/AdaOBD/sysroot/usr/include/arm-linux-gnueabihf/bits/pthreadtypes-arch.h:43
 
   -- FLAGS must stay at this position in the structure to maintain
   --     binary compatibility.   

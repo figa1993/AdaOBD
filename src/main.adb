@@ -16,7 +16,7 @@ procedure Main is
    CommuncationEngine : CommuncationEngine_Type(Dev'Access);
    PID_0 : Supported_PIDs_Bitfield(1,0,4);
 begin
-   Put_Line ("AdaOBD version 0.0.6");
+   Put_Line ("AdaOBD version 0.0.7");
    --   Parse command line arguments
 
    --   Initialize the CAN_Transceiver with the device handle,
@@ -26,13 +26,13 @@ begin
 
    CommuncationEngine.Request_PID(Message => PID_0);
 
-   while True loop
-      Message_Counter := Message_Counter + 1;
-      Put_Line( "Message #" & Message_Counter'Image );
-      Frame := SocketCAN.Receive (Dev);
-      Put_Line( Frame'Image );
-      delay 1.0;
-   end loop;
+   --  while True loop
+   --     Message_Counter := Message_Counter + 1;
+   --     Put_Line( "Message #" & Message_Counter'Image );
+   --     Frame := SocketCAN.Receive (Dev);
+   --     Put_Line( Frame'Image );
+   --     delay 1.0;
+   --  end loop;
 
    --   Register callbacks on the CAN_Transceiver, Encoder, and Decoder
 
