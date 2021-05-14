@@ -2,6 +2,8 @@
 with Interfaces.C; use Interfaces.C;
 with Interfaces.C.Strings; use Interfaces.C.Strings;
 with System; use System;
+with Ada.Text_IO; use Ada.Text_IO;
+with Ada.Unchecked_Conversion;
 
 --   GNAT specific packages
 with GNAT.OS_Lib; use GNAT.OS_Lib;
@@ -18,7 +20,7 @@ with Arm_Linux_Gnueabihf_Sys_Socket_H; use Arm_Linux_Gnueabihf_Sys_Socket_H;
 with Net_If_H; use Net_If_H;
 With unistd_h; use unistd_h;
 
-with Ada.Text_IO; use Ada.Text_IO;
+
 
 package body SocketCAN is
 
@@ -71,7 +73,7 @@ package body SocketCAN is
    procedure Initialize (This : in out Device) is
       -- @TODO: does these need to persist while the device is in scope?
       -- @TODO: Figure out how to zero the Socket_Address data before use
-      Socket_Address_CAN : aliased Sockaddr_Can;
+      Socket_Address_CAN : aliased sockaddr_can;
       Interface_Request : aliased Ifreq;
       Return_Code : Int ;
    begin
@@ -81,7 +83,7 @@ package body SocketCAN is
       --  @TODO: zero initialize the Socket Address?
 
       --  Request a socket from the system
-      This.Socket_FD := Sockets.C_Socket( PF_CAN, SOCK_RAW, CAN_RAW );
+      This.Socket_FD := socket( PF_CAN, SOCK_RAW, CAN_RAW );
 
       --  Check socket resource was provided without error
       if This.Socket_FD < 0 then
@@ -117,14 +119,26 @@ package body SocketCAN is
       Socket_Address_CAN.Can_Ifindex := Interface_Request.Ifr_Ifru.Ifru_Ivalue;
 
       --  Bind the socket
-      Return_Code := Sockets.C_Bind( This.Socket_FD, Socket_Address_CAN'Address,
-                                     Socket_Address_CAN'Size / Storage_Unit);
-      if Return_Code < 0 then
-         raise Program_Error with
-           "System failed to bind socket: " & Errno_Message;
-      else
-         Put_Line( "System provided socket with FD: " & This.Socket_FD'Image );
-      end if;
+      declare
+         Socket_Address : aliased arm_linux_gnueabihf_bits_socket_h.Sockaddr
+           with Address => Socket_Address_CAN'Address;
+         --  function Convert is new Ada.Unchecked_Conversion
+         --    (
+         --     Source => sockaddr_can,
+         --     Target => arm_linux_gnueabihf_bits_socket_h.sockaddr
+         --    );
+      begin
+         Return_Code := Bind(This.Socket_FD,
+                             Socket_Address'Access,
+                             Socket_Address_CAN'Size / Storage_Unit);
+         if Return_Code < 0 then
+            raise Program_Error with
+              "System failed to bind socket: " & Errno_Message;
+         else
+            Put_Line( "System provided socket with FD: " & This.Socket_FD'Image );
+         end if;
+      end;
+
 
    end Initialize;
 
