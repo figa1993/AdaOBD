@@ -11,20 +11,26 @@ with OBD.PIDs; use OBD.PIDs;
 procedure Main is
    Device_Name : aliased Unbounded_String := To_Unbounded_String("can0");
    Dev : aliased SocketCAN.Device (Device_Name'Access);
+   Device_Name1 : aliased Unbounded_String := To_Unbounded_String("can1");
+   Dev1 : aliased SocketCAN.Device (Device_Name1'Access);
    Frame : CAN.CAN_Frame;
    Message_Counter : Integer := 0;
    CommuncationEngine : CommuncationEngine_Type(Dev'Access);
    PID_0 : Supported_PIDs_Bitfield(1,0,4);
 begin
-   Put_Line ("AdaOBD version 0.0.8");
+   Put_Line ("AdaOBD version 0.0.10");
    --   Parse command line arguments
 
    --   Initialize the CAN_Transceiver with the device handle,
    --   Establish a connection for CAN_Transceiver
 
    Dev.Initialize;
+   Dev1.Initialize;
 
-   CommuncationEngine.Request_PID(Message => PID_0);
+   while True loop
+      CommuncationEngine.Request_PID(Message => PID_0);
+      delay 0.01;
+   end loop;
 
    --  while True loop
    --     Message_Counter := Message_Counter + 1;

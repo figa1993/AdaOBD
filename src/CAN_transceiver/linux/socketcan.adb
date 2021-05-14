@@ -27,8 +27,10 @@ package body SocketCAN is
    package Socket_Bits renames Arm_Linux_Gnueabihf_Bits_Socket_H;
 
    --  Thick binding for the Linux kernel can_frame type
-   type SocketCAN_DLC_Type is new Data_Length_Code with Size =>32;
+   type SocketCAN_DLC_Type is new Data_Length_Code with Size => 32;
    SocketCAN_Header_Length : constant Natural := 64;
+
+   type SocketCAN_Payload_Type is new Payload_Type with Alignment => 8;
 
    type SocketCAN_Header (Is_Extended : Boolean := True)
    is record
@@ -54,9 +56,9 @@ package body SocketCAN is
 
    type SocketCAN_Frame
    is record
-      Header : SocketCAN_Header;
-      Payload : Payload_Type(1 .. 8);
-   end record;
+      Header : aliased SocketCAN_Header;
+      Payload : aliased SocketCAN_Payload_Type(1 .. 8);
+   end record with Alignment => 8;
 
    for SocketCAN_Frame use record
       Header at 0 range 0 .. SocketCAN_Header_Length-1;
@@ -122,11 +124,6 @@ package body SocketCAN is
       declare
          Socket_Address : aliased arm_linux_gnueabihf_bits_socket_h.Sockaddr
            with Address => Socket_Address_CAN'Address;
-         --  function Convert is new Ada.Unchecked_Conversion
-         --    (
-         --     Source => sockaddr_can,
-         --     Target => arm_linux_gnueabihf_bits_socket_h.sockaddr
-         --    );
       begin
          Return_Code := Bind(This.Socket_FD,
                              Socket_Address'Access,
@@ -207,6 +204,17 @@ package body SocketCAN is
       Frame : aliased SocketCAN_Frame;
       Bytes_Written : int;
    begin
+
+      --  declare
+      --     Native_Frame : Linux_Can_H.Can_Frame;
+      --  begin
+      --     Bytes_Written := Write( This.Socket_FD,
+      --                             Native_Frame'Address,
+      --                             Native_Frame'Size/Storage_Unit);
+      --     Put_Line("Wrote " & Bytes_Written'Image & " of " &
+      --                Int(Frame'Size/Storage_Unit)'Image & " bytes");
+      --  end;
+
       --   @TODO How does this interact with filtering capabilities?
       if Header.Is_Extended then
          Header.Ext_Arbitration_ID := TX_Arbitration_Id;
@@ -215,9 +223,11 @@ package body SocketCAN is
       end if;
       Header.DLC := Payload'Length;
       Frame.Header := Header;
-      Frame.Payload := Payload;
+      Frame.Payload := SocketCAN_Payload_Type(Payload);
 
       --   Perform system calls to send the Frame
+      --   @TODO: Understand why adding the below line makes the write successful.
+      -- Put_Line("Writing to FD: " & This.Socket_FD'Image);
       Bytes_Written := write( This.Socket_FD,
                              Frame'Address,
                              Frame'Size/Storage_Unit);
