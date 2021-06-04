@@ -18,12 +18,13 @@ package OBD.PIDs is
                                 FramedData : in Frame_Type);
 
 
+   --  SERVICE 1 PID 13
    PID : PID_Type := 13;
    SERVICE : Service_Type := 1;
    SPEED_DATA_INDEX : Payload_Length_Type := 1;
 
 
-   --  PID 13
+
    type VehiculeSpeedMsg_Type is new Message_Type with private;
    type VehiculeSpeed_Type is range 0 .. 255;
 
@@ -31,6 +32,49 @@ package OBD.PIDs is
                                 TheFrame: out Frame_Type);
    overriding procedure Decode (This       : in out VehiculeSpeedMsg_Type;
                                 FramedData : in Frame_Type);
+
+   -- SERVICE 1 PID 12
+   --
+   --  PID              : PID_Type     := 12;
+   --  SERVICE          : Service_Type := 1;
+   --
+   --  type EngineSpeedMsg_Type is new Message_Type with private;
+   --  type EngineSpeed_Type is new Float range 0 .. 16383.75;
+   --
+   --  overriding procedure Encode (This : in VehiculeSpeedMsg_Type;
+   --                               TheFrame: out Frame_Type);
+   --  overriding procedure Decode (This       : in out VehiculeSpeedMsg_Type;
+   --                               FramedData : in Frame_Type);
+   --
+   --
+   --  PID : PID_Type := 13;
+   --  SERVICE : Service_Type := 1;
+   --  SPEED_DATA_INDEX : Payload_Length_Type := 1;
+   --
+   --  --  PID 13
+   --  type VehiculeSpeedMsg_Type is new Message_Type with private;
+   --  type VehiculeSpeed_Type is range 0 .. 255;
+   --
+   --  overriding procedure Encode (This : in VehiculeSpeedMsg_Type;
+   --                               TheFrame: out Frame_Type);
+   --  overriding procedure Decode (This       : in out VehiculeSpeedMsg_Type;
+   --                               FramedData : in Frame_Type);
+   --
+   --
+   --  PID : PID_Type := 13;
+   --  SERVICE : Service_Type := 1;
+   --  SPEED_DATA_INDEX : Payload_Length_Type := 1;
+
+
+   --  PID 13
+   --  type VehiculeSpeedMsg_Type is new Message_Type with private;
+   --  type VehiculeSpeed_Type is range 0 .. 255;
+   --
+   --  overriding procedure Encode (This : in VehiculeSpeedMsg_Type;
+   --                               TheFrame: out Frame_Type);
+   --  overriding procedure Decode (This       : in out VehiculeSpeedMsg_Type;
+   --                               FramedData : in Frame_Type);
+
 
 private
    type Supported_PIDs_Bitfield is new Message_Type with record

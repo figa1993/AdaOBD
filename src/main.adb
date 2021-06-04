@@ -28,7 +28,7 @@ begin
    Dev1.Initialize;
 
    while True loop
-      CommuncationEngine.Request_PID(Message => PID_0);
+     CommuncationEngine.sendRequest(Message => PID_0);
       delay 0.01;
    end loop;
 
