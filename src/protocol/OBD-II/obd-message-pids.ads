@@ -2,19 +2,24 @@ with System.Aux_DEC; use System.Aux_DEC;
 with OBD.Message; use OBD.Message;
 
 -- Package which will define all the OBD-II messages (PIDs)
-package OBD.PIDs is
+package OBD.Message.PIDs is
 
    --  @TODO: Consider creating an abstraction which handles the many to one
    --  relationship of different messages with the same deserialization.
    --  Each Realization of the OBD.Message.Message_Type needs to hard-code
    --  the PID as standardized by ISO 1576-4
 
-   --  PID 0
-   type Supported_PIDs_Bitfield is new Message_Type with private;
+   --  Service 1 PID 0
+   --  package Supported_PIDs_Base is new OBD.Message.Base(Service_Value => 1,
+   --                                                      PID_Value     => 0,
+   --                                                      Length_Value  => 4);
+   --  type Supported_PIDs_Bitfield is new Supported_PIDs_Base.Base_Type
+   type Supported_PIDs_Bitfield is new Message_Type
+   with private;
 
-   overriding procedure Encode (This : in Supported_PIDs_Bitfield;
+   procedure Encode (This : in Supported_PIDs_Bitfield;
                                 TheFrame: out Frame_Type);
-   overriding procedure Decode (This : in out Supported_PIDs_Bitfield;
+   procedure Decode (This : in out Supported_PIDs_Bitfield;
                                 FramedData : in Frame_Type);
 
 
@@ -25,13 +30,13 @@ package OBD.PIDs is
 
 
 
-   type VehiculeSpeedMsg_Type is new Message_Type with private;
-   type VehiculeSpeed_Type is range 0 .. 255;
-
-   overriding procedure Encode (This : in VehiculeSpeedMsg_Type;
-                                TheFrame: out Frame_Type);
-   overriding procedure Decode (This       : in out VehiculeSpeedMsg_Type;
-                                FramedData : in Frame_Type);
+   --  type VehiculeSpeedMsg_Type is new Message_Type with private;
+   --  type VehiculeSpeed_Type is range 0 .. 255;
+   --
+   --  overriding procedure Encode (This : in VehiculeSpeedMsg_Type;
+   --                               TheFrame: out Frame_Type);
+   --  overriding procedure Decode (This       : in out VehiculeSpeedMsg_Type;
+   --                               FramedData : in Frame_Type);
 
    -- SERVICE 1 PID 12
    --
@@ -77,11 +82,15 @@ package OBD.PIDs is
 
 
 private
-   type Supported_PIDs_Bitfield is new Message_Type with record
+   package Supported_PIDs_Base is new OBD.Message.Base(Service_Value => 1,
+                                                       PID_Value     => 0,
+                                                       Length_Value  => 4);
+   type Supported_PIDs_Bitfield is new Supported_PIDs_Base.Base_Type
+     with record
       Bits : Bit_Array_32;
    end record;
 
-   type VehiculeSpeedMsg_Type is new Message_Type with record
-      Speed : VehiculeSpeed_Type := 0;
-   end record;
-end OBD.PIDs;
+   --  type VehiculeSpeedMsg_Type is new Message_Type with record
+   --     Speed : VehiculeSpeed_Type := 0;
+   --  end record;
+end OBD.Message.PIDs;

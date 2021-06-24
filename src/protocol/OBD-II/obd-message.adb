@@ -7,6 +7,22 @@
 package body OBD.Message is
 
    --
+   -- function    : IsSubscribed
+   --
+   -- Description : return the length of the message
+   --
+   function IsSubscribed(Message    : in Message_Type;
+                         theHandler : in MessageHandler_Type) return Boolean is
+   begin
+      for iterator in Message.handlers.Iterate loop
+         if (theHandler = Element(iterator)) then
+            return True;
+         end if;
+      end loop;
+      return False;
+   end IsSubscribed;
+
+   --
    -- Procedure   : Subscribe
    --
    -- Description : This function is used to register a handler to a specific
@@ -40,45 +56,33 @@ package body OBD.Message is
       end loop;
    end Process;
 
-
-   --
-   -- function    : Get_PID
-   --
-   -- Description : return PID of the message
-   --
-   function Get_PID(This : in Message_Type) return PID_Type is (This.pid);
-
-
-   --
-   -- function    : Get_Service
-   --
-   -- Description : return Service ID of the message
-   --
-   function Get_Service(This : in Message_Type) return Service_Type is (This.service);
+   package body Base is
+      --
+      -- function    : Get_PID
+      --
+      -- Description : return PID of the message
+      --
+      function Get_PID(This : in Base_Type) return PID_Type is
+      begin
+           return PID_Value;
+      end Get_PID;
 
 
-   --
-   -- function    : Get_Length
-   --
-   -- Description : return the length of the message
-   --
-   function Get_Length(This : in Message_Type) return Payload_Length_Type is
-     (This.length);
+      --
+      -- function    : Get_Service
+      --
+      -- Description : return Service ID of the message
+      --
+      function Get_Service(This : in Base_Type) return Service_Type is (Service_Value);
 
-   --
-   -- function    : IsSubscribed
-   --
-   -- Description : return the length of the message
-   --
-   function IsSubscribed(Message    : in Message_Type;
-                         theHandler : in MessageHandler_Type) return Boolean is
-   begin
-      for iterator in Message.handlers.Iterate loop
-         if (theHandler = Element(iterator)) then
-            return True;
-         end if;
-      end loop;
-      return False;
-   end IsSubscribed;
+
+      --
+      -- function    : Get_Length
+      --
+      -- Description : return the length of the message
+      --
+      function Get_Length(This : in Base_Type) return Payload_Length_Type is
+        (Length_Value);
+   end Base;
 
 end OBD.Message;

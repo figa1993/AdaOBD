@@ -13,7 +13,7 @@
 package body OBD.CommuncationEngine is
 
 
-   function IsSubscribed(Message : in Message_Type) return Boolean is
+   function IsSubscribed(Message : in Message_Type'Class) return Boolean is
      (TheMessageMap.Contains(Message_Key_Type(Message.Get_Service) * 16#100# +
                               Message_Key_Type(Message.Get_PID)));
 
@@ -23,7 +23,7 @@ package body OBD.CommuncationEngine is
    -- Description : This function allows the communication engine to subscribe
    --               to a particular message. When subscribing to a message, the
    --               communication engine will handle it. If we receive a message
-   --               not subscibed the communication engien skip it.
+   --               not subscibed the communication engine skips it.
    --
    -- Parameters  : Message - The message we subscribe to.
    --
@@ -31,7 +31,7 @@ package body OBD.CommuncationEngine is
    -- 2. We add Message to a Map that we use to save the messages.
 
    procedure Subscribe(This    : in out CommuncationEngine_Type;
-                       Message : in Message_Type) is
+                       Message : in Message_Type'Class) is
       TheKey     : Message_Key_Type := 0;
 
    begin
@@ -124,7 +124,10 @@ package body OBD.CommuncationEngine is
             TheMessage : Message_Type'Class := TheMessageMap(TheKey);
          begin
             -- 3
+            -- Update this message's data
             TheMessage.Decode(FramedData);
+
+            -- Process the message
             TheMessage.Process;
          end;
       end if;

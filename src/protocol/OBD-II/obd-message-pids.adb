@@ -1,6 +1,6 @@
 with Ada.Unchecked_Conversion;
 
-package body OBD.PIDs is
+package body OBD.Message.PIDs is
 
    procedure Encode (This : in Supported_PIDs_Bitfield;
                      TheFrame: out Frame_Type) is
@@ -11,8 +11,6 @@ package body OBD.PIDs is
       TheFrame.Length := This.Get_Length;
       TheFrame.PID := This.Get_PID;
       TheFrame.Service := This.Get_Service;
-      -- The payload should simply be an unchecked conversion
-      --return Convert (This.Bits);
    end Encode;
 
    procedure Decode (This : in out Supported_PIDs_Bitfield;
@@ -21,18 +19,18 @@ package body OBD.PIDs is
       null;
    end;
 
-   procedure Decode (This       : in Out VehiculeSpeedMsg_Type;
-                     FramedData : in Frame_Type) is
-   begin
-      This.Speed := VehiculeSpeed_Type(FramedData.Payload(SPEED_DATA_INDEX));
-   end Decode;
+   --  procedure Decode (This       : in Out VehiculeSpeedMsg_Type;
+   --                    FramedData : in Frame_Type) is
+   --  begin
+   --     This.Speed := VehiculeSpeed_Type(FramedData.Payload(SPEED_DATA_INDEX));
+   --  end Decode;
+   --
+   --
+   --  procedure Encode (This    : in VehiculeSpeedMsg_Type;
+   --                    TheFrame: out Frame_Type) is
+   --
+   --  begin
+   --     TheFrame.Payload(SPEED_DATA_INDEX) := Byte_Type(This.Speed);
+   --  end Encode;
 
-
-   procedure Encode (This    : in VehiculeSpeedMsg_Type;
-                     TheFrame: out Frame_Type) is
-
-   begin
-      TheFrame.Payload(SPEED_DATA_INDEX) := Byte_Type(This.Speed);
-   end Encode;
-
-end OBD.PIDs;
+end OBD.Message.PIDs;
