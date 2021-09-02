@@ -4,7 +4,7 @@ with Ada.Strings.Unbounded; use Ada.Strings.Unbounded;
 with SocketCAN; use SocketCAN;
 with CAN; use CAN;
 with OBD; use OBD;
-with OBD.CommuncationEngine; use OBD.CommuncationEngine;
+with OBD.Protocol; use OBD.Protocol;
 with OBD.Message; use OBD.Message;
 with OBD.Message.PIDs; use OBD.Message.PIDs;
 
@@ -15,7 +15,7 @@ procedure Main is
    Device_Name1 : aliased Unbounded_String := To_Unbounded_String("can1");
    Dev1 : aliased SocketCAN.Device (Device_Name1'Access);
    Message_Counter : Integer := 0;
-   CommuncationEngine : CommuncationEngine_Type(Dev'Access);
+   Communcation_Engine : Communication_Engine_Type(Dev'Access);
    PID_0 : Supported_PIDs_Bitfield;
 begin
    Put_Line ("AdaOBD version 0.0.11");
@@ -28,7 +28,7 @@ begin
    Dev1.Initialize;
 
    while True loop
-      CommuncationEngine.sendRequest(Message => Message_Type'Class(PID_0));
+      Communcation_Engine.sendRequest(Message => Message_Type'Class(PID_0));
       delay 0.01;
    end loop;
 
