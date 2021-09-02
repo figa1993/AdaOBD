@@ -10,7 +10,7 @@
 --               package.
 
 
-package body OBD.CommuncationEngine is
+package body OBD.Protocol is
 
 
    function IsSubscribed(Message : in Message_Type'Class) return Boolean is
@@ -30,7 +30,7 @@ package body OBD.CommuncationEngine is
    -- 1. We build a key which is the concatenation of the serviceId and the PID.
    -- 2. We add Message to a Map that we use to save the messages.
 
-   procedure Subscribe(This    : in out CommuncationEngine_Type;
+   procedure Subscribe(This    : in out Communication_Engine_Type;
                        Message : in Message_Type'Class) is
       TheKey     : Message_Key_Type := 0;
 
@@ -55,7 +55,7 @@ package body OBD.CommuncationEngine is
    --
    -- Example: Service_Id := 0x05 and Pid = 0x15 => Key  := 0x0515
 
-   function Build_Key(This       : in out CommuncationEngine_Type;
+   function Build_Key(This       : in out Communication_Engine_Type;
                       Serive_Id  : in Service_Type;
                       Pid        : in PID_Type) return Message_Key_Type is
       Key : Message_Key_Type := 0;
@@ -80,18 +80,20 @@ package body OBD.CommuncationEngine is
    --
    -- Parameters  : Message - The message to be send.
    --
-   -- 1. Translate the message (nto a byte buffer.
+   -- 1. Translate the message (into a byte buffer).
    -- 2. Transmit the buffer to the CAN tranceiver.
 
 
-   procedure SendRequest (This    : in out CommuncationEngine_Type;
+   procedure SendRequest (This    : in out Communication_Engine_Type;
                           Message : in Message_Type'Class) is
       Request : Frame_Type;
       function To_Bytes is new Ada.Unchecked_Conversion(Source => Frame_Type,
                                                     Target => OBD_CAN_Payload);
    begin
       Request.PID := Message.Get_PID;
-      This.CAN_Transceiver.Send( To_Bytes(Request), 16#7DF#, True );
+      This.CAN_Transceiver.Send( To_Bytes(Request),
+                                 EXTERNAL_TEST_EQUIPMENT_REQUEST_ID,
+                                 False );
    end SendRequest;
 
 
@@ -111,7 +113,7 @@ package body OBD.CommuncationEngine is
    -- 2. Check in the Map 'TheMessageMap' if we handle this message
    -- 3. Decode the message received and process it.
 
-   procedure ReceiveResponse(This       : in out CommuncationEngine_Type;
+   procedure ReceiveResponse(This       : in out Communication_Engine_Type;
                              FramedData : in Frame_Type) is
 
       TheKey     : Message_Key_Type := 0;
@@ -134,4 +136,35 @@ package body OBD.CommuncationEngine is
       null;
    end ReceiveResponse;
 
-end OBD.CommuncationEngine;
+   protected body Protected_Message_Map_Type is
+      procedure Subscribe( Message : in Message_Type'Class ) is
+      begin
+         null;
+      end Subscribe;
+   end Protected_Message_Map_Type;
+
+   task body Receive_Loop is
+   begin
+      if State.CAN_Transceiver not null then
+         loop
+            null;
+            --CAN_Transceiver.Receive
+         end loop;
+       end if;
+   end Receive_Loop;
+
+   task body Transmit_Loop is
+   begin
+      null;
+      loop
+         null;
+         --CAN_Transceiver.Receive
+      end loop;
+   end Transmit_Loop;
+
+   procedure Initialize (Object : in out Communication_Engine_Type) is
+   begin
+      Object.Receive_Work := Receive_Loop(
+   end Initialize;
+
+end OBD.Protocol;
