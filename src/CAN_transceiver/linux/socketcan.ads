@@ -20,48 +20,33 @@ package SocketCAN is
 
    procedure Initialize (This : in out Device);
    procedure Stop (This : Device);
-   overriding function Receive (This : in out Device) return Can.CAN_Frame;
-   overriding procedure Send (This : in out Device;
+   function Receive (This : in out Device) return Can.CAN_Frame;
+   procedure Send (This : in out Device;
                               Payload : Payload_Type;
                               TX_Arbitration_Id : Ext_Arbitration_ID_Type;
                               Is_Extended : Boolean);
 
-   overriding procedure Subscribe( This : in out Device;
-                                   Rx_Arbitration_Id : Ext_Arbitration_ID_Type;
-                                   Payload_Handler : CAN_Payload_Handler_Type);
-
 private
-
-   --  type SocketCAN_Frame is record
-   --     Header : aliased SocketCAN_Header;
-   --     Payload : aliased Payload_Type;
-   --  end record;
-   --  for SocketCAN_Frame use record
-   --     Header at 0 range 0 .. SocketCAN_Header_Length - 1;
-   --     Payload at 0 range SocketCAN_Header_Length .. SocketCAN_Header_Length +
-   --       64 - 1;
-   --  end record;
 
    --   Instantiate Hashed Map container between Arbitration ID and type
    --   since the Arbitration ID is smaller than the Ada.Containers.Hash_Type
    --   and an assumption can be made that the Arbitration IDs will likely be
    --   uniformly chosen by the system designer, the identity function
    --   is a reasonable choice for the Hash function
-   function Identity_Hash( Key : in Ext_Arbitration_ID_Type ) return Hash_Type is
-     ( Hash_Type(Key) ) with Inline;
-
-
-   package ID_To_Handler_Maps is new Hashed_Maps(
-                                                 Key_Type        =>   Ext_Arbitration_ID_Type,
-                                                 Element_Type    =>   CAN_Payload_Handler_Type,
-                                                 Hash            =>   Identity_Hash,
-                                                 Equivalent_Keys =>   "=");
-   use ID_To_Handler_Maps;
+   --  function Identity_Hash( Key : in Ext_Arbitration_ID_Type ) return Hash_Type is
+   --    ( Hash_Type(Key) ) with Inline;
+   --
+   --
+   --  package ID_To_Handler_Maps is new Hashed_Maps(
+   --                                                Key_Type        =>   Ext_Arbitration_ID_Type,
+   --                                                Element_Type    =>   CAN_Payload_Handler_Type,
+   --                                                Hash            =>   Identity_Hash,
+   --                                                Equivalent_Keys =>   "=");
+   --  use ID_To_Handler_Maps;
 
    type Device (Device_Name : access Unbounded_String) is new Transceiver_Type
    with record
       Socket_FD : Sockets.C.Int;
-      Subscriber_Map : Map;
    end record;
 
 end SocketCAN;

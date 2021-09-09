@@ -3,6 +3,11 @@ with Ada.Containers.Doubly_Linked_Lists; use Ada.Containers;
 
 package OBD.Message is
 
+
+   --   This is the type to be used abstractly. The type should be used by
+   --   clients that handle raw OBD payloads and utilize the type's
+   --   encode/decode services without the need to deal with the message
+   --   specific data.
    type Message_Type is abstract tagged private;
 
    procedure Encode (This    : in Message_Type;
@@ -32,17 +37,5 @@ private
    type Message_Type is abstract tagged record
       handlers : HandlerList.List;
    end record;
-
-   generic
-      Service_Value : Service_Type;
-      PID_Value : PID_Type;
-      Length_Value : Payload_Length_Type;
-   package Base is
-      type Base_Type is abstract new Message_Type with null record;
-
-      overriding function Get_PID (This : in Base_Type) return PID_Type;
-      overriding function Get_Service (This : in Base_Type) return Service_Type;
-      overriding function Get_Length (This : in Base_Type) return Payload_Length_Type;
-   end Base;
 
 end OBD.Message;

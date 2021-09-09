@@ -205,16 +205,6 @@ package body SocketCAN is
       Bytes_Written : int;
    begin
 
-      --  declare
-      --     Native_Frame : Linux_Can_H.Can_Frame;
-      --  begin
-      --     Bytes_Written := Write( This.Socket_FD,
-      --                             Native_Frame'Address,
-      --                             Native_Frame'Size/Storage_Unit);
-      --     Put_Line("Wrote " & Bytes_Written'Image & " of " &
-      --                Int(Frame'Size/Storage_Unit)'Image & " bytes");
-      --  end;
-
       --   @TODO How does this interact with filtering capabilities?
       if Header.Is_Extended then
          Header.Ext_Arbitration_ID := TX_Arbitration_Id;
@@ -226,8 +216,6 @@ package body SocketCAN is
       Frame.Payload := SocketCAN_Payload_Type(Payload);
 
       --   Perform system calls to send the Frame
-      --   @TODO: Understand why adding the below line makes the write successful.
-      -- Put_Line("Writing to FD: " & This.Socket_FD'Image);
       Bytes_Written := write( This.Socket_FD,
                              Frame'Address,
                              Frame'Size/Storage_Unit);
@@ -243,12 +231,5 @@ package body SocketCAN is
       --   @TODO: Determine whether the entire frame needs to be sent at once
 
    end Send;
-
-   procedure Subscribe( This : in out Device;
-                        Rx_Arbitration_Id : Ext_Arbitration_ID_Type;
-                        Payload_Handler : CAN_Payload_Handler_Type) is
-   begin
-      This.Subscriber_Map.Include(Rx_Arbitration_Id, Payload_Handler);
-   end Subscribe;
 
 end SocketCAN;

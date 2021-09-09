@@ -3,6 +3,8 @@ project AdaOBD is
    for Source_Dirs use ("src/**");
    for Object_Dir use "obj";
    for Main use ("main.adb");
+   for Target use "arm-linux-gnueabihf";
+   for Runtime ("ada") use "native";
 
    package Gnattest is
       for Tests_Root use "../test/";
@@ -14,12 +16,13 @@ project AdaOBD is
 
    package Ide is
       for Connection_Tool use "openocd";
-      for Program_Host use "192.168.1.22:2345";
+      for Program_Host use "192.168.1.15:2345";
       for Communication_Protocol use "remote";
    end Ide;
 
-   for Target use "arm-linux-gnueabihf";
-   for Runtime ("ada") use "native";
+   package Builder is
+      for Executable ("main.adb") use "adaobd";
+   end Builder;
 
 end AdaOBD;
 

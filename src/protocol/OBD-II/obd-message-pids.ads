@@ -1,7 +1,8 @@
 with System.Aux_DEC; use System.Aux_DEC;
 with OBD.Message; use OBD.Message;
+with OBD.Message_Template;
 
--- Package which will define all the OBD-II messages (PIDs)
+-- Package which will define all the standard OBD-II legislated messages (PIDs)
 package OBD.Message.PIDs is
 
    --  @TODO: Consider creating an abstraction which handles the many to one
@@ -9,19 +10,21 @@ package OBD.Message.PIDs is
    --  Each Realization of the OBD.Message.Message_Type needs to hard-code
    --  the PID as standardized by ISO 1576-4
 
-   --  Service 1 PID 0
-   --  package Supported_PIDs_Base is new OBD.Message.Base(Service_Value => 1,
-   --                                                      PID_Value     => 0,
-   --                                                      Length_Value  => 4);
-   --  type Supported_PIDs_Bitfield is new Supported_PIDs_Base.Base_Type
-   type Supported_PIDs_Bitfield is new Message_Type
-   with private;
+   procedure Decode_Bitfield (Bytes : in Payload_Bytes;
+                              Bits : out Bit_Array_32);
 
-   procedure Encode (This : in Supported_PIDs_Bitfield;
-                                TheFrame: out Frame_Type);
-   procedure Decode (This : in out Supported_PIDs_Bitfield;
-                                FramedData : in Frame_Type);
+   procedure Encode_Bitfield (Bits : in Bit_Array_32;
+                              Bytes: out Payload_Bytes);
 
+   package Bitfield_Message is new OBD.Message_Template
+     (
+      Payload_Type => Bit_Array_32,
+      Encode       => Encode_Bitfield,
+      Decode       => Decode_Bitfield,
+      PID_Value => 0,
+      Service_Value => 1,
+      Length_Value => Bit_Array_32'Size/Byte_Type'Size
+     );
 
    --  SERVICE 1 PID 13
    PID : PID_Type := 13;
@@ -82,13 +85,13 @@ package OBD.Message.PIDs is
 
 
 private
-   package Supported_PIDs_Base is new OBD.Message.Base(Service_Value => 1,
-                                                       PID_Value     => 0,
-                                                       Length_Value  => 4);
-   type Supported_PIDs_Bitfield is new Supported_PIDs_Base.Base_Type
-     with record
-      Bits : Bit_Array_32;
-   end record;
+   --  package Supported_PIDs_Base is new OBD.Message.Base(Service_Value => 1,
+   --                                                      PID_Value     => 0,
+   --                                                      Length_Value  => 4);
+   --  type Supported_PIDs_Bitfield is new Supported_PIDs_Base.Base_Type
+   --    with record
+   --     Bits : Bit_Array_32;
+   --  end record;
 
    --  type VehiculeSpeedMsg_Type is new Message_Type with record
    --     Speed : VehiculeSpeed_Type := 0;
