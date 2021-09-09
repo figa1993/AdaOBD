@@ -2,22 +2,22 @@ with Ada.Unchecked_Conversion;
 
 package body OBD.Message.PIDs is
 
-   procedure Encode (This : in Supported_PIDs_Bitfield;
-                     TheFrame: out Frame_Type) is
-      function Convert is new Ada.Unchecked_Conversion (Source => Bit_Array_32,
-                                                        Target => Payload_Type);
+   procedure Decode_Bitfield (Bytes : in Payload_Bytes;
+                              Bits : out Bit_Array_32) is
+      function Convert is new Ada.Unchecked_Conversion (Source => Payload_Bytes,
+                                                        Target => Bit_Array_32);
    begin
-      TheFrame.Payload := Convert(This.Bits);
-      TheFrame.Length := This.Get_Length;
-      TheFrame.PID := This.Get_PID;
-      TheFrame.Service := This.Get_Service;
-   end Encode;
+      Bits := Convert(Bytes);
+   end Decode_Bitfield;
 
-   procedure Decode (This : in out Supported_PIDs_Bitfield;
-                     FramedData : in Frame_Type) is
+   procedure Encode_Bitfield (Bits : in Bit_Array_32;
+                              Bytes: out Payload_Bytes) is
+      subtype Byte_Array is Payload_Bytes(Payload_Length_Type'First .. (Bit_Array_32'Size/Byte_Type'Size));
+      function Convert is new Ada.Unchecked_Conversion (Source => Bit_Array_32,
+                                                        Target => Byte_Array);
    begin
-      null;
-   end;
+      Bytes := Convert(Bits);
+   end Encode_Bitfield;
 
    --  procedure Decode (This       : in Out VehiculeSpeedMsg_Type;
    --                    FramedData : in Frame_Type) is

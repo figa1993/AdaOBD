@@ -39,74 +39,12 @@ package CAN is
       end case;
    end record;
 
-   --   Option 1: CAN_Frame is totally abstract with getters for the fields
-   --   each realization defines its own representation. That representation
-   --   is used throughout.
-
-   --   Option 2: CAN_Frame is flat, header and payload are at the same level
-   --   Discriminated on format and DLC. Each "realization" defines its own
-   --   representation and then uses Change of Representation to convert.
-   --   Con: Payload has to get copied twice?
-
-   --   Option 3: CAN_Frame is split into header and payload. Header is
-   --   disciminated by extension type. Payload is an access type to Payload
-   --   since its value isn't known initially.
-   --   Con: Access types aren't idiomatic Ada.
-
-   --   Option 4: CAN_Frame is flat, header and payload are at the same level
-   --   Mutably discriminated on format and DLC. The transceiver is in charge
-   --   allocating the CAN_Frame, since it can read in the header and have all
-   --   information to define the internal representation
-
-   --   Observation: The type is clearly "dynamic" since it has a variable
-   --   length until header is read in. Dynamic allocation of the Payload, or
-   --   assumption of the worst case scenario seems necessary.
-
-   --  type CAN_Frame is record
-   --        Header : CAN_Header;
-   --        Payload : Access Payload_Type;
-   --  end record;
-
+   --   @TODO: Is there a way to avoid ducplication of the Is_Extended and DLC
+   --   fields in both the frame and the payload?
    type CAN_Frame( Is_Extended : Boolean := True;
                      DLC : Data_Length_Code := 0 ) is record
       Header : CAN_Header(Is_Extended, DLC);
       Payload : Payload_Type(Data_Length_Code'First .. DLC);
    end record;
-
-   --  type Extended_Format_Frame is private;
-private
-
---   type Std_Aribtration_Type is record
---      Identifier : Std_Arbitration_ID_Type;
---      RTR : Boolean;
---   end record;
-
-   --   @TODO: Verify this format from wikipedia is correct
-
-   --   The Extended Frame Format can be interpreted as
-   --   a standard frame format based on the value of the
-   --   IDE bit
-   --  type Extended_Format_Header is record
-   --     Identifier_A : Natural range 0 .. 2**11;
-   --     SRR : Boolean := True;
-   --     IDE : Boolean := True;
-   --     Identifier_B : Natural range 0 .. 2*18;
-   --     RTR : Boolean;
-   --     DLC : Data_Length_Code;
-   --  end record;
-   --
-   --  for Extended_Format_Header use record
-   --     Identifier_A at 0 range 0 .. 11;
-   --     SRR at 0 range 12 .. 12;
-   --     IDE at 0 range 13 .. 13;
-   --     Identifier_B at 0 range 14 .. 31;
-   --     RTR at 0 range 32 .. 32;
-   --     DLC at 0 range 1000 .. 1003;
-   --  end record;
-   --
-   --  type Extended_Format_Frame is record
-   --     Header : Extended_Format_Header;
-   --     Data : Payload_Type;
-   --  end record;
 
 end CAN;
